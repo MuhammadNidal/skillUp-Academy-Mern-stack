@@ -1,0 +1,70 @@
+/* External Css */
+/* h1{
+    font-size: larger;
+color: green;
+
+}
+p{
+    color:blueviolet;
+    background-color: aquamarine;
+
+} */
+
+/* Selector */
+
+/* <!--  Element Selector   --> */
+h1 {
+    color: blue;
+    font-size: 30px;
+}
+/* Universal Selector */
+/* *{
+    color: brown;
+    font-family: 'Times New Roman', Times, serif;
+} */
+
+
+/* Class Selector */
+.cs{
+    color: orange;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* ID Selector */
+#ids{
+    color: orangered;
+    font-weight: 400;
+}
+
+/* Group Selector */
+h3 , h5 {
+    color: greenyellow;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/* Target Selector */
+ a[target]{
+    color: rgb(28, 182, 48);
+ }
+
+ /* Pseudo Selector */
+ h4{
+    color: cadetblue;
+
+ }
+ h4:hover{
+    color: red;
+ }
+
+ /* COlor IN css */
+ /* BY name */
+ h5{
+    color: rgb(253, 2, 44);
+ }
+  /* BY RGB */
+ .Crgb{
+    color: rgb(18, 157, 175);
+ }
+
+ .chex{
+    color: #ff0000;
+ }

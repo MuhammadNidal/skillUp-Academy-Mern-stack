@@ -1,0 +1,95 @@
+🌟 CSS Background Properties
+The background property in CSS is used to set the background of an element. It includes color, images, position, size, repeat, and more.
+
+🔹 1. Background Color (background-color)
+Defines the background color of an element.
+
+body {
+  background-color: lightblue;
+}
+🔹 2. Background Image (background-image)
+Sets an image as the background.
+
+body {
+  background-image: url('background.jpg');
+}
+🔹 3. Background Repeat (background-repeat)
+Controls how the background image repeats.
+
+repeat (Default) – Repeats the image in both directions.
+no-repeat – Shows the image only once.
+repeat-x – Repeats horizontally.
+repeat-y – Repeats vertically.
+
+body {
+  background-image: url('bg.jpg');
+  background-repeat: no-repeat;
+}
+🔹 4. Background Position (background-position)
+Defines the position of the background image.
+Values: top, bottom, left, right, center, or exact pixels/percentages.
+
+body {
+  background-image: url('bg.jpg');
+  background-position: center;
+}
+🔹 5. Background Size (background-size)
+Controls the size of the background image.
+
+cover – Scales the image to cover the entire element.
+Custom values like 100px 50px or percentages.
+body {
+  background-image: url('bg.jpg');
+  background-size: cover;
+}
+🔹 6. Background Attachment (background-attachment)
+Controls whether the background scrolls with the page.
+
+scroll – Background moves when scrolling.
+fixed – Background stays fixed.
+body {
+  background-image: url('bg.jpg');
+  background-attachment: fixed;
+}
+🔳 CSS Border Properties
+The border property is used to define the edges of an element.
+
+🔹 1. Border Width (border-width)
+Sets the thickness of the border (values in px, em, etc.).
+p {
+  border-width: 3px;
+}
+🔹 2. Border Style (border-style)
+Defines the style of the border.
+Options: solid, dashed, dotted, double, inset, outset, none.
+
+p {
+  border-style: dashed;
+}
+🔹 3. Border Color (border-color)
+Defines the color of the border.
+p {
+  border-color: red;
+}
+🔹 4. Border Radius (border-radius)
+Makes the borders rounded.
+
+div {
+  border: 2px solid black;
+  border-radius: 10px;
+}
+🔹 5. Border Shorthand Property
+Instead of writing multiple border properties separately, you can combine them:
+
+p {
+  border: 3px solid blue;
+}
+🔹 6. Individual Border Sides
+You can style each side separately:
+
+div {
+  border-top: 3px solid red;
+  border-right: 2px dashed green;
+  border-bottom: 5px double blue;
+  border-left: 4px dotted orange;
+}

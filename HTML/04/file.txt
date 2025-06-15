@@ -1,0 +1,86 @@
+                  -------->>>  1. Inline and Block Elements in HTML   <<<< -------------
+
+Block elements take up the full width and start on a new line.
+Examples: <div>, <p>, <h1> to <h6>, <ul>, <table>.
+Inline elements only take up as much space as needed and stay in the same line.
+Examples: <span>, <a>, <strong>, <img>, <input>
+
+
+                    --------------->>>> 2. IDs & Classes  <<<< - ---------
+                    
+ID (id) is unique for a single element (used for styling or JavaScript).Defined using id="uniqueID" "#"
+Class (class) can be used on multiple elements to apply the same styles. Defined using class="classname" ". "
+
+                 ------------->>>  Iframe in HTML  <<<--------
+
+ <iframe src="https://www.example.com" width="600" height="400"></iframe>
+
+
+
+
+
+                     --------------->>>>   3.form    <<<---------------
+
+<form action="/submit" method="POST">
+  <input type="text" name="username" placeholder="Enter your name" required>
+  <input type="email" name="email" placeholder="Enter your email" required>
+  <input type="password" name="password" placeholder="Enter your password" required>
+  <button type="submit">Submit</button>
+</form>
+
+
+Form Element Attributes:
+action: URL to send form data.
+Example: <form action="/submit" method="POST">
+
+method: HTTP method (GET or POST).
+Example: <form method="POST">
+
+Input Element Attributes:
+type: Type of input (text, email, etc.).
+Example: <input type="text">
+
+name: Identifies input for submission.
+Example: <input name="username">
+
+value: Value sent with form submission.
+Example: <input value="John">
+
+placeholder: Hint text inside input.
+Example: <input placeholder="Enter your name">
+
+required: Makes the field mandatory.
+Example: <input required>
+
+readonly: Makes the input non-editable.
+Example: <input readonly>
+
+disabled: Disables the input.
+Example: <input disabled>
+
+min/max: Sets min/max values for numeric/date inputs.
+Example: <input min="1" max="10"> 
+
+maxlength/minlength: Limits characters.
+Example: <input maxlength="10">
+Button Element Attributes:
+type: Button type (submit, reset, button).
+Example: <button type="submit">Submit</button>
+
+name: Identifies button for scripts.
+Example: <button name="submitBtn">Submit</button>
+
+disabled: Disables the button.
+Example: <button disabled>Submit</button>
+
+Form: action, method
+Input: type, value, name, placeholder, required, readonly, disabled, min/max, pattern, maxlength
+
+               ---------->>>   All Tags  <<<<----------------
+
+Text tags like <h1> to <h6>, <p>, and <a> help structure content.
+Form tags like <input>, <button>, and <textarea> gather user data.
+Structural tags like <div>, <header>, <footer>, and <section> organize content.
+Multimedia tags like <img>, <audio>, <video>, and <iframe> embed media content.
+Table tags create and structure tables.
+Semantic tags like <main>, <nav>, and <article> improve accessibility and SEO.

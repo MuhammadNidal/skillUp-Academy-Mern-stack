@@ -1,0 +1,75 @@
+                               --->>  What is CSS?
+
+
+CSS (Cascading Style Sheets) is a stylesheet language used to design and style web pages. It controls the layout, colors, fonts, spacing, and animations, making websites more attractive and user-friendly. By separating content (HTML) from design, CSS enhances flexibility and maintainability.
+
+
+
+CSS for Styling
+CSS is essential for improving the visual appearance of a webpage. It allows you to:
+
+✅ Change Colors – Set background, text, and border colors.
+✅ Customize Fonts – Adjust size, family, weight, and style.
+✅ Control Layouts – Arrange elements using Flexbox, Grid, and positioning.
+✅ Manage Spacing – Define margins, padding, and line heights.
+✅ Add Animations – Create transitions, hover effects, and keyframe animations.
+
+                 ----->>>Types of CSS & Priority  <<<<<---------------
+
+1️⃣ Inline CSS (Highest Priority) – Written inside the HTML element. It overrides both internal and external CSS.
+
+2 Internal CSS (Medium Priority) – Written inside a  tag in the HTML file. It overrides external but not inline CSS.
+
+3️⃣ External CSS (Lowest Priority) – Stored in a separate file and applied to multiple pages. It can be overridden by both inline and internal CSS.
+
+👉 Priority Order: Inline > Internal > External.
+
+                  ------->>>   CSS Selectors
+
+
+                  
+Selectors help target HTML elements for styling.
+
+🔹 Element Selector – Styles all instances of an element.
+
+p { color: red; }
+
+🔹 Class Selector – Targets elements with a specific class.
+
+.myClass { font-size: 20px; font-weight: bold; }
+
+🔹 ID Selector – Targets a unique element using an ID.
+
+#myId { background-color: yellow; padding: 10px; }
+
+🔹 Group Selector – Styles multiple elements at once.
+
+h1, h2, p { font-family: sans-serif; }
+
+🔹 Pseudo-classes – Style elements in a specific state (e.g., hover).
+
+a:hover { color: green; text-decoration: underline; }
+
+universal Selector apply in the all the things
+*{
+
+}
+
+CSS Properties & Values
+CSS uses properties to define what to style and values to specify how.
+
+Example:
+
+p {
+  color: ; /* Property: color, Value: blue */
+  font-size: 18px; /* Property: font-size, Value: 18px */
+  line-height: 1.5;
+}
+
+With CSS, you can transform a plain webpage into a beautifully designed and responsive site. Want more examples
+
+Color in CSS
+Rgb
+hex
+hsl
+name

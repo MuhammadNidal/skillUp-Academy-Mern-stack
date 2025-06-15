@@ -1,0 +1,165 @@
+If Statement
+An if statement checks a condition and runs code if true.
+
+Syntax:
+
+javascript
+
+Copy
+if (condition) {
+  // code if true
+}
+Example:
+
+javascript
+
+Copy
+let age = 20;
+if (age >= 18) {
+  console.log("You can vote.");
+}
+Output: "You can vote."
+
+If...Else:
+Runs alternative code if condition is false.
+
+javascript
+
+Copy
+let age = 16;
+if (age >= 18) {
+  console.log("You can vote.");
+} else {
+  console.log("Too young to vote.");
+}
+Output: "Too young to vote."
+
+If...Else If...Else:
+Checks multiple conditions.
+
+javascript
+
+Copy
+let marks = 75;
+if (marks >= 90) {
+  console.log("A+");
+} else if (marks >= 80) {
+  console.log("A");
+} else if (marks >= 70) {
+  console.log("B");
+} else {
+  console.log("C or below");
+}
+Output: "B"
+
+JavaScript Object
+An object stores data in key-value pairs.
+
+Syntax:
+
+javascript
+
+Copy
+const obj = {
+  key1: value1,
+  key2: value2
+};
+Example:
+
+javascript
+
+Copy
+const person = {
+  name: "Muhammad Nidal",
+  age: 23,
+  email: "nidal@example.com"
+};
+Accessing Properties:
+
+Dot: person.name → "Muhammad Nidal"
+Bracket: person["age"] → 23
+Modifying:
+
+Add: person.country = "Pakistan";
+Update: person.age = 24;
+Delete: delete person.email;
+Methods (Functions in Objects):
+
+javascript
+
+Copy
+const user = {
+  name: "Nidal",
+  greet: function() {
+    console.log("Hello, " + this.name);
+  }
+};
+user.greet(); // "Hello, Nidal"
+Nested Objects:
+
+javascript
+
+Copy
+const student = {
+  name: "Ali",
+  marks: { math: 90, science: 85 }
+};
+console.log(student.marks.math); // 90
+Objects vs Arrays:
+
+Objects: Key-value, unordered, structured data.
+Arrays: Indexed, ordered, list-like.
+JSON Conversion:
+
+To JSON: JSON.stringify(person);
+From JSON: JSON.parse(jsonString);
+Use Cases: User profiles, API responses, settings.
+
+Arrays
+An array stores multiple values in a single variable, accessed by index.
+
+Example:
+
+javascript
+
+Copy
+const fruits = ["Apple", "Banana", "Mango"];
+console.log(fruits[0]); // "Apple"
+Common Methods:
+
+push(): Add to end.
+javascript
+
+Copy
+fruits.push("Orange"); // ["Apple", "Banana", "Mango", "Orange"]
+pop(): Remove from end.
+javascript
+
+Copy
+fruits.pop(); // ["Apple", "Banana", "Mango"]
+shift(): Remove from start.
+javascript
+
+Copy
+fruits.shift(); // ["Banana", "Mango"]
+unshift(): Add to start.
+javascript
+
+Copy
+fruits.unshift("Kiwi"); // ["Kiwi", "Banana", "Mango"]
+length: Count items.
+javascript
+
+Copy
+console.log(fruits.length); // 3
+Final Example:
+
+javascript
+
+Copy
+const fruits = ["Apple", "Banana"];
+fruits.push("Mango");   // ["Apple", "Banana", "Mango"]
+fruits.pop();           // ["Apple", "Banana"]
+fruits.shift();         // ["Banana"]
+fruits.unshift("Kiwi"); // ["Kiwi", "Banana"]
+console.log(fruits.length); // 2

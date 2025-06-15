@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Display & Visibility</title>
+    <style>
+        /* Block Element */
+        .block {
+            display: iinl;
+            background-color: lightblue;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .inline {
+        /* Inline Element */
+            display: inline;
+            background-color: red;
+            color: white;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        /* Inline-Block Element */
+        .inline-block {
+            display: inline-block;
+            background-color: green;
+            color: white;
+            padding: 10px;
+            width: 100px;
+            text-align: center;
+            margin: 5px;
+        }
+
+        /* Hidden using display: none */
+        .hidden {
+            display:none;
+        }
+
+        /* Hidden using visibility: hidden */
+        .invisible {
+            visibility: hidden;
+            background-color: orange;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        /* Z-Index Example */
+        .box {
+            width: 100px;
+            height: 100px;
+            margin-top: 150px;
+            position: absolute;
+        }
+        .box1 {
+            background-color: blue;
+            top: 50px;
+            left: 50px;
+            z-index: 1;
+        }
+        .box2 {
+            background-color: yellow;
+            top: 70px;
+            left: 70px;
+            z-index: -1; /* Appears on top */
+        }
+    </style>
+</head>
+<body>
+
+    <h2>CSS Display, Visibility & Z-Index</h2>
+
+    <div class="block">Block Element</div>
+<br>
+    <span class="inline">Inline 1</span>
+    <span class="inline">Inline 2</span>
+    <br>
+    <div class="inline-block">Inline-Block</div>
+    <br>
+    <div class="hidden">This is hidden (display: none)</div>
+    <div class="invisible">This is invisible (visibility: hidden)</div>
+    <br>
+    <div class="box box1"></div>
+    <br><div class="box box2"></div>
+
+</body>
+</html>

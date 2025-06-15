@@ -1,0 +1,4 @@
+Class 01: Introduction to Frontend Development
+•	Frontend vs. Backend
+•	Client vs. Server Concept
+•	Introduction to HTML, CSS, and JavaScript

@@ -1,0 +1,165 @@
+Strings
+Events
+Switch Statement
+
+🔤 JavaScript Strings
+Strings store text enclosed in quotes.
+
+Example:
+javascript
+
+let message = "Hello, Nidal!";
+console.log(message); // "Hello, Nidal!"
+
+String Methods:
+
+javascript
+
+let name = "Nidal";
+
+console.log(name.length);        // 5
+console.log(name.toUpperCase()); // "NIDAL"
+console.log(name.toLowerCase()); // "nidal"
+console.log(name.includes("dal")); // true
+console.log(name.charAt(2));     // "d"
+console.log(name.slice(1, 4));   // "ida"
+
+Concatenation:
+
+javascript
+
+let first = "Muhammad";
+let last = "Nidal";
+let fullName = first + " " + last;
+console.log(fullName); // "Muhammad Nidal"
+
+Template Literals:
+javascript
+
+bicket
+let greeting = `Hello, ${fullName}`;
+console.log(greeting); // "Hello, Muhammad Nidal"
+
+
+🌟 What are Events in JavaScript? (Easy Explanation)
+An event is something that happens on your website — like:
+
+Clicking a button ✅
+
+Pressing a key on the keyboard ⌨️
+
+Submitting a form 📝
+
+Loading the page 
+
+💡 Real-Life Example:
+👉 Think of a doorbell:
+
+You press the button = event
+
+The bell rings = JavaScript does something
+
+🎯 Most Common Events (No mouseover!)
+Event	Description
+click	When the user clicks something
+keydown	When a key is pressed on the keyboard
+submit	When a form is submitted
+load	When the page is fully loaded
+
+✅ Example 1: Click Event Using onclick
+html
+Copy
+Edit
+<button onclick="greetUser()">Click Me</button>
+
+<script>
+  function greetUser() {
+    alert("Hello, this is Nidal!");
+  }
+</script>
+🧠 When the user clicks the button, the greetUser() function runs
+
+
+
+
+🧠 What is a switch Statement?
+A switch statement in JavaScript is used to make decisions — just like an if...else chain, but more organized and cleaner when you have many conditions to check.
+
+📦 Syntax of switch
+javascript
+Copy
+Edit
+switch (expression) {
+  case value1:
+    // Code runs if expression === value1
+    break;
+  case value2:
+    // Code runs if expression === value2
+    break;
+  default:
+    // Code runs if no case matches
+}
+
+Any other button → “Invalid choice”
+
+Just like that, the switch checks which case matches your choice.
+
+🔍 Explanation:
+choice is 2
+
+It checks each case
+
+When it reaches case 2, it runs that block: console.log("You chose Pepsi")
+
+Then it hits break and exits
+
+🔁 Why Use break?
+The break statement stops the switch from continuing.
+
+If you don’t use break, it will run the next cases too (called "fall-through").
+
+❌ Without break Example (Fall-Through Behavior)
+javascript
+let day = 1;
+
+switch (day) {
+  case 1:
+    console.log("Monday");
+  case 2:
+    console.log("Tuesday");
+  case 3:
+    console.log("Wednesday");
+}
+Output:
+
+Monday
+Tuesday
+Wednesday
+✅ To avoid this, always use break (unless you want multiple cases to run).
+
+🌟 Using default
+default runs when none of the cases match.
+
+It’s like the else in if...else.
+
+javascript
+Copy
+Edit
+let color = "purple";
+
+switch (color) {
+  case "red":
+    console.log("Red is selected");
+    break;
+  case "blue":
+    console.log("Blue is selected");
+    break;
+  default:
+    console.log("Color not available");
+}
+🧠 When to Use switch Instead of if...else?
+✅ Use switch when:
+
+You are checking one variable against many possible values
+
+For example: menu options, days, colors, etc.

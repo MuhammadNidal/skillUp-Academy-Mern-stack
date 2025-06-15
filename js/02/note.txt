@@ -1,0 +1,109 @@
+🧮 1. Arithmetic Operators in JavaScript
+These are used to perform math operations like addition, subtraction, multiplication, etc.
+
+✨ Common Arithmetic Operators:
+Operator	Name	Example	Output
++	Addition	5 + 2	7
+-	Subtraction	10 - 3	7
+*	Multiplication	4 * 3	12
+/	Division	12 / 4	3
+%	Modulus	10 % 3	1 (Remainder)
+++	Increment	x++	Increases by 1
+--	Decrement	x--	Decreases by 1
+
+💡 Example:
+javascript
+
+let a = 10;
+let b = 3;
+
+console.log(a + b);  // 13
+console.log(a - b);  // 7
+console.log(a * b);  // 30
+console.log(a / b);  // 3.333...
+console.log(a % b);  // 1
+etc
+
+
+
+🧠 1. Logical Operators in JavaScript
+Logical operators are used to make decisions based on true or false values. Mostly used in if, while, and other conditional statements.
+
+✅ There are 3 main logical operators:
+🔹 && (AND)
+Returns true only if both conditions are true.
+
+javascript
+
+let age = 20;
+let hasID = true;
+
+if (age >= 18 && hasID) {
+  console.log("You can enter.");
+} else {
+  console.log("Access denied.");
+}
+✔️ Both conditions must be true.
+
+🔹 || (OR)
+Returns true if at least one condition is true.
+
+javascript
+
+let isWeekend = true;
+let isHoliday = false;
+
+if (isWeekend || isHoliday) {
+  console.log("You can relax today!");
+}
+✔️ Only one condition needs to be true.
+
+🔹 ! (NOT)
+Reverses the result: true becomes false, and vice versa.
+
+javascript
+
+let isRaining = false;
+
+if (!isRaining) {
+  console.log("Go outside and enjoy!");
+}
+✔️ !false becomes true, so the message is shown.
+
+✅ Summary Table:
+Operator	Name	Description
+&&	AND	True if both are true
+`		`
+!	NOT	Reverses true to false (and vice versa)
+
+
+🧩 2. Types of Functions in JavaScript
+Functions are used to organize and reuse code.
+
+✅ Type 1: Function Declaration
+javascript
+
+function greet() {
+  console.log("Hello!");
+}
+
+greet(); // Call the function
+✅ Can be called before it's defined (hoisting).
+
+✅ Type 2: Function Expression
+javascript
+
+const greet = function() {
+  console.log("Hi there!");
+};
+
+greet();
+❌ Can not be called before it's defined.
+
+
+function add(a, b) {
+  return a + b;
+}
+
+let result = add(5, 3); // 8
+console.log(result);

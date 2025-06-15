@@ -1,0 +1,136 @@
+🧠 What is Flexbox?
+Flexbox (short for Flexible Box) is a CSS layout module that helps us arrange items in a row or column and distribute space between them nicely, even when their sizes are different.
+
+It makes responsive design easier and is super helpful when building headers, navbars, card layouts, etc.
+
+🛠️ How to Use Flexbox
+✅ Step 1: Set display to flex
+.parent {
+  display: flex;
+}
+
+📦 Imagine This:
+You have a box of chocolates (parent), and inside it are 3 chocolates (children).
+
+<div class="parent">
+  <div class="box">1</div>
+  <div class="box">2</div>
+  <div class="box">3</div>
+</div>
+
+.parent {
+  display: flex;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background: orange;
+  margin: 5px;
+}
+
+Now they will automatically line up side by side.
+
+🔄 Important Flexbox Properties
+
+1. flex-direction → Direction of items
+
+flex-direction: row;        /* default, left to right */
+flex-direction: row-reverse;/* right to left */
+flex-direction: column;     /* top to bottom */
+flex-direction: column-reverse; /* bottom to top */
+
+2. justify-content → Horizontal alignment
+
+justify-content: flex-start;   /* items go to the left */
+justify-content: flex-end;     /* items go to the right */
+justify-content: center;       /* items go in the center */
+justify-content: space-between;/* equal space between */
+justify-content: space-around; /* equal space around */
+
+3. align-items → Vertical alignment
+
+align-items: flex-start;   /* top */
+align-items: flex-end;     /* bottom */
+align-items: center;       /* center vertically */
+align-items: stretch;      /* stretch to fill height */
+
+4. flex-wrap → Wrap items if there's no space
+
+flex-wrap: nowrap;      /* default, items stay in one line */
+flex-wrap: wrap;        /* items move to next line if needed */
+
+
+
+📱 What are Media Queries?
+
+Media Queries are used in CSS to make your website responsive – which means the layout and design change depending on the screen size (like mobile, tablet, or desktop).
+
+🧠 Think Like This:
+Imagine you have a website, and it looks perfect on your laptop 💻. But when you open it on your mobile 📱, everything looks messy.
+With media queries, you can change the styles based on screen width or device type, so it looks good everywhere.
+
+✅ Syntax of Media Query
+
+@media (condition) {
+  /* CSS styles here */
+}
+📏 Example: Basic Media Query
+
+/* Default styles for large screens (like laptops) */
+.container {
+  background-color: blue;
+  font-size: 24px;
+}
+
+/* Styles for small screens (like mobiles) */
+@media (max-width: 600px) {
+  .container {
+    background-color: green;
+    font-size: 16px;
+  }
+}
+
+📌 Explanation:
+
+On big screens: background is blue, text size is 24px.
+
+On screens 600px or smaller: background turns green, text size becomes 16px.
+
+📐 Common Breakpoints (for practice)
+
+Device	Max Width (px)
+Mobile	600px
+Tablet	768px
+Small Laptop	1024px
+Desktop	1200px+
+
+🎯 Real-Life Example
+
+<div class="box">Responsive Box</div>
+
+.box {
+  width: 400px;
+  background: orange;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* On mobile phones */
+@media (max-width: 600px) {
+  .box {
+    width: 100%;
+    background: red;
+  }
+}
+When screen is small, .box becomes full-width and background turns red!
+
+🔥 Bonus: Multiple Conditions
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  .box {
+    background-color: purple;
+  }
+}
+This applies styles only between 600px and 1024px (tablet size).

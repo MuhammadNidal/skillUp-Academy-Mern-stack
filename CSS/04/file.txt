@@ -1,0 +1,133 @@
+🌟 CSS Display, Visibility, and Z-Index
+When designing web pages, understanding how elements are displayed is essential. CSS provides various display properties, visibility settings, and ways to handle layering. Let’s explore these concepts in detail.
+
+🎯 1. CSS Display Property
+The display property controls how an element appears on a webpage. It defines whether an element is inline, block, or hidden.
+
+📌 Display Types:
+1️⃣ Block (display: block;)
+
+Takes up the full width of the parent container.
+
+Starts on a new line.
+
+Examples: <div>, <p>, <h1> to <h6>, <section>, etc.
+
+🔹 Example:
+
+css
+Copy
+Edit
+div {
+    display: block;
+    width: 200px;
+    height: 100px;
+    background-color: lightblue;
+}
+2️⃣ Inline (display: inline;)
+
+Only takes up as much width as necessary.
+
+Stays in the same line with other elements.
+
+Examples: <span>, <a>, <strong>, <em>, etc.
+
+🔹 Example:
+
+css
+Copy
+Edit
+span {
+    display: inline;
+    color: red;
+}
+3️⃣ Inline-Block (display: inline-block;)
+
+Similar to inline, but allows setting width and height.
+
+Stays in the same line but behaves like a block element.
+
+🔹 Example:
+
+css
+Copy
+Edit
+.inline-box {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    background-color: lightgreen;
+}
+4️⃣ None (display: none;)
+
+Completely removes the element from the page (it won’t take up space).
+🔹 Example:
+
+css
+Copy
+Edit
+.hidden {
+    display: none;
+}
+🎯 2. Visibility Property
+The visibility property controls whether an element is visible or hidden, but it still occupies space.
+
+📌 Visibility Types:
+1️⃣ Visible (visibility: visible;)
+
+The element is displayed normally.
+2️⃣ Hidden (visibility: hidden;)
+
+The element is invisible but still takes up space.
+🔹 Example:
+
+css
+Copy
+Edit
+.invisible {
+    visibility: hidden;
+}
+👉 Difference between display: none; and visibility: hidden;
+
+display: none; → Removes the element completely (no space occupied).
+
+visibility: hidden; → Hides the element but still occupies space.
+
+🎯 3. Z-Index Property
+The z-index property controls the stacking order of elements (which element appears on top). It works only with positioned elements (position: relative;, absolute;, fixed;).
+
+📌 How Z-Index Works:
+Higher z-index → Appears in front
+
+Lower z-index → Appears behind
+
+🔹 Example:
+
+css
+Copy
+Edit
+.box1 {
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    z-index: 1;
+}
+
+.box2 {
+    width: 100px;
+    height: 100px;
+    background: blue;
+    position: absolute;
+    top: 70px;
+    left: 70px;
+    z-index: 2;
+}
+📌 Result: The blue box (z-index: 2;) will appear on top of the red box (z-index: 1;).
+
+🎯 Conclusion
+✅ Display Property → Controls how elements appear (block, inline, inline-block, or none).
+✅ Visibility → Hides elements while keeping space occupied.
+✅ Z-Index → Determines the stacking order of elements.

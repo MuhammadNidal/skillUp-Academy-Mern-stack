@@ -1,0 +1,8 @@
+Class 02: Development Environment Setup
+•	Downloading and Installing VS Code
+•	Setting Up the Development Environment
+•	Basic Structure of a Website
+•	Heading ,paragraph ,
+•	Comments  (line ,multiple line)
+•	go
+•	inline text formatting(<b>,<br>,<hr> <strong>, <i>, <small>, <mark>, <small>, </em>, </del>, <sub>, <sup>)
