@@ -1,0 +1,165 @@
+🔁 1. for Loop
+✅ Best for: When you know how many times the loop should run.
+🔸 Syntax:
+javascript
+
+for (initialization; condition; increment/decrement) {
+  // Code to be executed
+}
+🔸 Example:
+javascript
+
+for (let i = 1; i <= 5; i++) {
+  console.log("Step:", i);
+}
+🔍 How it works:
+Step	Value of i	Condition	Output
+Initialization	let i = 1	i <= 5	Run
+1st loop	i = 1	true	Step: 1
+2nd loop	i = 2	true	Step: 2
+3rd loop	i = 3	true	Step: 3
+4th loop	i = 4	true	Step: 4
+5th loop	i = 5	true	Step: 5
+6th loop	i = 6	false	Stops
+
+🧠 Notes:
+You can also decrement (i--) or step by 2 (i += 2)
+
+Can loop backward as well
+
+🔁 2. while Loop
+✅ Best for: When you don’t know how many times it should run, and want to check the condition before the first run.
+🔸 Syntax:
+javascript
+
+while (condition) {
+  // Code to be executed
+}
+🔸 Example:
+javascript
+
+let i = 1;
+while (i <= 5) {
+  console.log("While Step:", i);
+  i++;
+}
+🔍 How it works:
+Checks i <= 5 before each run.
+
+As soon as the condition is false, it exits.
+
+⚠️ Warning:
+javascript
+Copy
+Edit
+while (true) {
+  // Infinite loop if no break or condition update
+}
+🔁 3. do...while Loop
+✅ Best for: When you want the code to run at least once, even if the condition is false.
+🔸 Syntax:
+javascript
+
+do {
+  // Code to be executed
+} while (condition);
+🔸 Example:
+javascript
+Copy
+Edit
+let i = 6;
+do {
+  console.log("Do While Step:", i);
+  i++;
+} while (i <= 5);
+🔍 Output:
+vbnet
+Copy
+Edit
+Do While Step: 6
+👉 It ran once even though the condition was false, because check happens after execution.
+
+🔁 4. for...in Loop
+✅ Best for: Looping over object properties (keys).
+🔸 Syntax:
+javascript
+Copy
+Edit
+for (let key in object) {
+  // Code using object[key]
+}
+🔸 Example:
+javascript
+Copy
+Edit
+const user = {
+  name: "Nidal",
+  age: 22,
+  country: "Pakistan"
+};
+
+for (let key in user) {
+  console.log(`${key}: ${user[key]}`);
+}
+🔍 Output:
+makefile
+Copy
+Edit
+name: Nidal
+age: 22
+country: Pakistan
+🧠 Notes:
+Loops keys only
+
+Can also be used on arrays, but not recommended:
+
+javascript
+Copy
+Edit
+const arr = [10, 20, 30];
+for (let i in arr) {
+  console.log(i, arr[i]); // Index and value
+}
+🔁 5. for...of Loop
+✅ Best for: Looping over iterables like arrays, strings, maps, sets, etc.
+🔸 Syntax:
+javascript
+Copy
+Edit
+for (let item of iterable) {
+  // Use item
+}
+🔸 Example:
+javascript
+Copy
+Edit
+const colors = ["red", "green", "blue"];
+for (let color of colors) {
+  console.log(color);
+}
+🔍 Output:
+nginx
+Copy
+Edit
+red
+green
+blue
+✨ Works on strings too:
+javascript
+Copy
+Edit
+for (let char of "Nidal") {
+  console.log(char);
+}
+🧠 Notes:
+Use for...of for values
+
+Cannot loop over object directly — must use Object.entries(), Object.values(), or Object.keys().
+
+🧾 Final Comparison Table:
+Loop	Use Case	Works With	Runs at least once?
+for	Known count	Any logic	❌
+while	Unknown count, check before run	Any logic	❌
+do...while	Unknown count, must run at least once	Any logic	✅
+for...in	Object keys	Objects	❌
+for...of	Iterable values	Arrays, Strings, etc	❌
