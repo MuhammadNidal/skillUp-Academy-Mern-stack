@@ -1,0 +1,165 @@
+✅ 1. Introduction to DOM (What and Why)
+Start with the basic understanding.
+
+📌 What is the DOM?
+DOM stands for Document Object Model.
+
+It's a tree-like structure created by the browser from the HTML document.
+
+It represents the entire HTML page as objects that JavaScript can access and manipulate.
+
+📌 Why is DOM Important?
+JavaScript uses the DOM to interact with and manipulate web pages.
+
+You can change text, images, styles, add or remove elements, handle user events (like clicks, inputs, etc.).
+
+🖼️ Visual Example:
+Show this tree:
+
+html
+Copy
+Edit
+<html>
+ └── <body>
+      ├── <h1>
+      └── <p>
+Use a diagram or draw it to help students visualize.
+
+✅ 2. How to Access DOM Elements
+🎯 Explain the Main DOM Selector Methods:
+js
+Copy
+Edit
+document.getElementById("id")
+document.getElementsByClassName("class")
+document.getElementsByTagName("tag")
+document.querySelector("css selector")
+document.querySelectorAll("css selector")
+
+
+
+🔍 1. getElementById() – Select by ID
+✅ Example HTML:
+html
+Copy
+Edit
+<p id="myPara">Hello World!</p>
+✅ JavaScript:
+js
+Copy
+Edit
+const para = document.getElementById("myPara");
+para.textContent = "Text changed using ID!";
+para.style.color = "blue";
+💡 Explanation:
+getElementById() selects a single element with the specific ID.
+
+Then you can change its text using textContent.
+
+You can change style like color, fontSize, etc.
+
+👥 2. getElementsByClassName() – Select by Class Name
+✅ Example HTML:
+html
+Copy
+Edit
+<p class="myText">First</p>
+<p class="myText">Second</p>
+✅ JavaScript:
+js
+Copy
+Edit
+const elements = document.getElementsByClassName("myText");
+elements[0].textContent = "Changed First";
+elements[1].style.color = "green";
+💡 Explanation:
+Returns a collection (HTMLCollection) of elements.
+
+Use indexing like an array: elements[0], elements[1].
+
+🔖 3. getElementsByTagName() – Select by Tag Name
+✅ Example HTML:
+html
+Copy
+Edit
+<h2>This is heading</h2>
+<h2>Another heading</h2>
+✅ JavaScript:
+js
+Copy
+Edit
+const headings = document.getElementsByTagName("h2");
+headings[0].textContent = "Heading Changed!";
+headings[1].style.backgroundColor = "lightgray";
+💡 Explanation:
+Selects all <h2> tags.
+
+Again, it returns a collection — so use [] to access elements.
+
+🎯 4. querySelector() – Select First Match
+✅ Example HTML:
+html
+Copy
+Edit
+<div class="box">This is a box</div>
+✅ JavaScript:
+js
+Copy
+Edit
+const box = document.querySelector(".box");
+box.textContent = "Selected with querySelector!";
+box.style.border = "2px solid red";
+💡 Explanation:
+Uses CSS selector syntax (.class, #id, tag).
+
+Selects only the first matching element.
+
+🎯 5. querySelectorAll() – Select All Matches
+✅ Example HTML:
+html
+Copy
+Edit
+<p class="note">Note 1</p>
+<p class="note">Note 2</p>
+✅ JavaScript:
+js
+Copy
+Edit
+const notes = document.querySelectorAll(".note");
+notes[0].textContent = "Updated Note 1";
+notes[1].style.color = "purple";
+💡 Explanation:
+Returns a NodeList (like an array).
+
+Use .forEach() if you want to loop through all items.
+
+🖌️ Changing Text and Style – Summary
+🔤 Change Text:
+js
+Copy
+Edit
+element.textContent = "New Text Here";
+element.innerHTML = "<b>Bold Text</b>"; // allows HTML
+🎨 Change Style:
+js
+Copy
+Edit
+element.style.color = "red";
+element.style.backgroundColor = "yellow";
+element.style.fontSize = "20px";
+🧪 Live Mini Example:
+✅ HTML:
+html
+Copy
+Edit
+<h1 id="main">Hello</h1>
+<p class="info">Old Text</p>
+<button onclick="changeIt()">Change Content</button>
+✅ JavaScript:
+js
+Copy
+Edit
+function changeIt() {
+  document.getElementById("main").textContent = "Changed Heading!";
+  document.querySelector(".info").style.color = "blue";
+}
