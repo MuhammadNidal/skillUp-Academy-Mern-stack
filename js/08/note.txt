@@ -1,0 +1,96 @@
+3. DOM Manipulation – Add, Remove, Replace Elements
+Teach how to dynamically change the page content:
+
+🔹 Create Elements
+
+js
+Copy
+Edit
+const newPara = document.createElement("p");
+newPara.textContent = "This is new!";
+document.body.appendChild(newPara);
+🔹 Remove Elements
+
+js
+Copy
+Edit
+const removeMe = document.getElementById("remove");
+removeMe.remove();
+🔹 Replace Elements
+
+js
+Copy
+Edit
+const newHeading = document.createElement("h2");
+newHeading.textContent = "I'm a new heading";
+const oldHeading = document.getElementById("main");
+document.body.replaceChild(newHeading, oldHeading);
+🧠 4. DOM Events – Making Pages Interactive
+Teach how to respond to user actions.
+
+🔹 Common Event Types: click, mouseover, keydown, change, etc.
+
+🔹 Add Event Listener
+
+js
+Copy
+Edit
+document.getElementById("btn").addEventListener("click", function () {
+  alert("Button clicked!");
+});
+🔹 Remove Event Listener
+
+js
+Copy
+Edit
+function sayHi() {
+  alert("Hi!");
+}
+btn.addEventListener("click", sayHi);
+btn.removeEventListener("click", sayHi);
+⌨️ 5. Form Handling and Input Value Access
+How to get input values and handle form submission:
+
+html
+Copy
+Edit
+<input type="text" id="username" />
+<button onclick="getValue()">Submit</button>
+js
+Copy
+Edit
+function getValue() {
+  const value = document.getElementById("username").value;
+  alert("You entered: " + value);
+}
+📦 6. ClassList and Style Toggling
+Control classes with JavaScript.
+
+js
+Copy
+Edit
+element.classList.add("new-class");
+element.classList.remove("old-class");
+element.classList.toggle("dark-mode");
+Useful for light/dark mode toggle projects.
+
+🧰 7. InnerHTML vs textContent vs innerText
+Clear their differences:
+
+textContent: returns all content (including hidden).
+
+innerText: only visible text.
+
+innerHTML: allows you to use HTML tags.
+
+🧪 Mini Projects After Each Section
+Color changer
+
+To-do list
+
+Image slider
+
+Dark mode toggle
+
+Live character counter
+

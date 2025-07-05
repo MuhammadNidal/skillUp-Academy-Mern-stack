@@ -1,0 +1,200 @@
+
+Object types
+ 1. Object.entries()
+👉 Converts an object into an array of key-value pairs.
+
+const user = { name: "Nidal", age: 22 };
+
+console.log(Object.entries(user));
+🟢 Output:
+
+[ ["name", "Nidal"], ["age", 22] ]
+🔹 2. Object.values()
+👉 Gets only the values from an object.
+
+
+const user = { name: "Nidal", age: 22 };
+
+console.log(Object.values(user));
+🟢 Output:
+
+
+["Nidal", 22]
+🔹 3. Object.fromEntries()
+👉 Converts an array of key-value pairs back into an object.
+
+
+const entries = [ ["name", "Nidal"], ["age", 22] ];
+
+console.log(Object.fromEntries(entries));
+🟢 Output:
+
+js
+Copy
+Edit
+{ name: "Nidal", age: 22 }
+✅ Summary:
+Function	What it does
+Object.entries()	Object → Array of key-value pairs
+Object.values()	Object → Array of values only
+Object.fromEntries()	Array of key-value pairs → Object
+
+🔹 What is try...catch?
+try...catch is a JavaScript error handling mechanism used to gracefully handle
+ runtime errors without crashing the entire program.
+
+🔹 Syntax:
+js
+Copy
+Edit
+try {
+  // Code that may throw an error
+} catch (error) {
+  // Code to handle the error
+}
+🔹 Flow of try...catch:
+try block:
+
+JS runs the code inside this block line by line.
+
+If no error occurs, it skips the catch block.
+
+If an error occurs inside try:
+
+Execution immediately stops in try.
+
+Control jumps to the catch block.
+
+catch(error) receives the error object.
+
+catch block:
+
+Handles the error: log it, show a message, or provide a fallback.
+
+After catch, code continues as usual.
+
+🔹 Example 1: Without Error
+js
+Copy
+Edit
+try {
+  let a = 10;
+  console.log(a);  // 10
+} catch (err) {
+  console.log("Error caught:", err.message);
+}
+console.log("Continue after try...catch");
+✅ Output:
+
+vbnet
+Copy
+Edit
+10
+Continue after try...catch
+🔹 Example 2: With Error
+js
+Copy
+Edit
+try {
+  let a = 10;
+  console.log(b);  // ReferenceError: b is not defined
+} catch (err) {
+  console.log("Error caught:", err.message);
+}
+console.log("Continue after try...catch");
+✅ Output:
+
+vbnet
+Copy
+Edit
+Error caught: b is not defined
+Continue after try...catch
+🔹 catch Parameter
+The catch block receives the error object. It usually contains:
+
+name – error type (e.g., ReferenceError)
+
+message – error description
+
+stack – stack trace (used for debugging)
+
+js
+Copy
+Edit
+try {
+  JSON.parse("{ invalid json }");
+} catch (error) {
+  console.log("Name:", error.name);        // SyntaxError
+  console.log("Message:", error.message);  // Unexpected token i in JSON...
+}
+🔹 Optional finally Block
+If you want to run some code no matter what happens (whether error or not), use finally:
+
+js
+Copy
+Edit
+try {
+  console.log("Running code");
+} catch (err) {
+  console.log("Caught error");
+} finally {
+  console.log("Always runs");
+}
+🔹 When to Use try...catch?
+✅ Use when:
+
+Dealing with external input (APIs, user data)
+
+Parsing JSON
+
+DOM operations (like accessing elements)
+
+Network requests
+
+🚫 Avoid for:
+
+Synchronous code you can validate beforehand
+
+Hiding bugs
+
+
+
+Different types of funciton
+ What Are Arrow Functions?
+Arrow functions are a shorter syntax for writing functions in JavaScript introduced in ES6 (ECMAScript 2015).
+
+
+// Traditional Function
+function greet(name) {
+  return "Hello " + name;
+}
+
+// Arrow Function
+const greet = (name) => {
+  return "Hello " + name;
+};
+🔷 Syntax Variations
+✅ 1. Basic Arrow Function
+
+
+const add = (a, b) => {
+  return a + b;
+};
+console.log(add(3, 4));  // 7
+✅ 2. Implicit Return (Short Version)
+If the function has only one expression, you can omit {} and return:
+
+
+const multiply = (a, b) => a * b;
+console.log(multiply(3, 5));  // 15
+✅ 3. One Parameter — No Parentheses Needed
+
+
+const greet = name => "Hello " + name;
+console.log(greet("Nidal"));  // Hello Nidal
+✅ 4. No Parameters
+You must use empty parentheses:
+
+
+const sayHi = () => "Hi!";
+console.log(sayHi());  // Hi!
