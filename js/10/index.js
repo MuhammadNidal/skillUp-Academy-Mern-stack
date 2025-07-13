@@ -108,5 +108,34 @@ fetch('https://jsonplaceholder.typicode.com/posts/4')
     console.error("Error fetching data:", error);
 })
 
+fetch('https://chedmed.online/api/v1/brand/get')
+.then(response =>response.json()
+).then(response=>{
+    console.log(response);
+    
+})
+.catch(error =>{
+    console.error("Error fetching data:", error);
+})
 
-fetch('https://chedmed.online/api/v1//sub/category2/get')
+
+fetch('https://chedmed.online/api/v1/brand/get')
+  .then(response => response.json())
+  .then(result => {
+    // The brand list is inside: result.data.brands
+    const brands = result.data.brands;
+    displayBrands(brands);
+  })
+  .catch(error => {
+    console.error("Error fetching brands:", error);
+  });
+
+function displayBrands(brands) {
+  const container = document.getElementById("brand-container");
+
+  brands.map(brand => {
+    const brandDiv = document.createElement("div");
+    brandDiv.textContent = brand.title_fr + brand.title_en +brand.title_ar; // You can also use title_ar or title_fr
+    container.appendChild(brandDiv);
+  });
+}
