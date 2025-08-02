@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Brands UI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    #brand-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .brand-card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: transform 0.2s;
+    }
+
+    .brand-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .brand-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #0077cc;
+    }
+
+    .brand-info {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Brands</h1>
+  <div id="brand-container"></div>
+
+  <script>
+    fetch('https://chedmed.online/api/v1/brand/get')
+      .then(response => response.json())
+      .then(result => {
+        const brands = result.data.brands;
+        displayBrands(brands);
+      })
+      .catch(error => {
+        console.error("Error fetching brands:", error);
+      });
+
+    function displayBrands(brands) {
+      const container = document.getElementById("brand-container");
+
+      brands.forEach(brand => {
+        const card = document.createElement("div");
+        card.className = "brand-card";
+
+        // Extract email only from created_by / updated_by string
+        const createdByEmail = brand.created_by?.split("|").pop()?.trim();
+        const updatedByEmail = brand.updated_by?.split("|").pop()?.trim();
+
+        // Format dates
+        const createdAt = new Date(brand.created_at).toLocaleDateString();
+        const updatedAt = new Date(brand.updated_at).toLocaleDateString();
+
+        card.innerHTML = `
+          <div class="brand-title">${brand.title_en}</div>
+          <div class="brand-info">
+            <strong>EN:</strong> ${brand.title_en}<br>
+            <strong>FR:</strong> ${brand.title_fr}<br>
+            <strong>AR:</strong> ${brand.title_ar}<br><br>
+           
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+  </script>
+
+</body>
+</html>
