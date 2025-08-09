@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const main = () => {
+  const [colorName,setcolorName]= useState("green")
   return (
-    <div style={{background:"gray", marginTop:"30px",padding:"30px", marginBottom:"40px"}}>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias libero in inventore assumenda? Soluta nihil corrupti aperiam ipsa error culpa, maiores sint est, magni architecto rerum maxime repudiandae itaque consequuntur doloribus labore, suscipit ex veritatis? Cumque, deserunt animi! Quam nostrum eum hic dolorum nihil aut totam perferendis ad. A, deserunt magnam. Rem maiores corporis iusto ipsum? Similique consequatur quis harum id hic qui exercitationem rerum debitis maiores? Tempora non, corrupti amet mollitia fugit iusto recusandae velit nemo? Facilis, nostrum accusantium consequuntur ipsam saepe voluptatum veritatis minima est debitis optio vitae soluta fugit rerum aperiam fuga deserunt, quaerat illum itaque odit quos perferendis voluptate voluptatem! Unde mollitia a id odit eveniet non porro molestias sint repudiandae, consequatur veritatis architecto dignissimos cumque asperiores fuga corporis voluptates quasi placeat aliquid. Sed atque nesciunt minima nostrum laudantium architecto expedita, labore consectetur inventore excepturi aut at! Quam omnis ratione hic debitis vitae fugit nihil, sed necessitatibus, similique, amet velit totam? Deleniti magnam, quasi laudantium ipsa aspernatur consectetur fuga doloribus mollitia magni voluptatibus assumenda a animi recusandae culpa eum, vitae maiores veritatis dolore, doloremque optio odit ut enim eligendi placeat. Quaerat placeat quisquam illum tempore nisi repudiandae possimus animi distinctio ea ab, quasi dolorum, corporis error tenetur molestiae tempora similique nesciunt cum quo repellat aliquid iste est. Blanditiis corporis recusandae assumenda eligendi consequuntur eum quis numquam laboriosam et quaerat at voluptatum provident maxime reprehenderit, fugiat, molestiae optio doloribus iure tempora minus culpa dolor nemo. Ad facere libero possimus consectetur sequi quibusdam tempore iste sapiente, numquam quisquam? Culpa optio eius aspernatur harum nisi accusantium cum corrupti similique sit ea recusandae voluptatem, dignissimos quis facere reprehenderit neque cumque sequi. Quaerat animi doloribus qui corporis commodi voluptates aliquam numquam magnam possimus praesentium sed id necessitatibus, nam officia aut molestias delectus totam assumenda nisi! Eaque cumque mollitia sapiente cum veniam totam nostrum consequatur molestiae, ducimus nulla est non quibusdam, alias, nesciunt sunt fuga consectetur. Molestias, minus provident tempora optio accusamus voluptas temporibus possimus aut et tempore minima perferendis sed natus placeat perspiciatis corrupti impedit nisi, numquam autem ab commodi ea fugit iure veritatis! Nesciunt animi quaerat aliquid facilis iure sequi tenetur vitae, rem itaque. Excepturi pariatur nostrum incidunt consequuntur vitae dicta sint eligendi ipsa eos, architecto explicabo dignissimos at impedit sapiente! Libero hic aperiam quos cum quasi vitae, mollitia cumque, amet odio eligendi provident ullam voluptate, vel sapiente blanditiis maiores quidem asperiores id voluptatibus voluptates veritatis reprehenderit molestias corrupti debitis. Laudantium ab modi id quae fugit, quam fuga, rem tempora nostrum quod minus, earum iure architecto beatae sapiente repellendus quis ipsam reprehenderit quaerat distinctio facere tenetur. Quas magnam eum commodi voluptas laboriosam perspiciatis sunt voluptatibus corporis temporibus amet doloremque ut minus ab ex dolore dicta cum id beatae provident vitae, necessitatibus, asperiores, excepturi quis soluta? Fugit illum, ipsum voluptate dolor eaque nostrum magnam omnis, ut nihil veritatis ducimus tenetur consectetur deserunt enim voluptatibus accusantium quaerat, eius doloremque. Mollitia at ex ratione fugiat distinctio blanditiis exercitationem modi nostrum iste et animi veniam libero est omnis quaerat temporibus debitis explicabo, quidem vel.</p>
-    </div>
+    <div>
+<p>this is the {colorName}</p>
+<button onClick={()=>setcolorName("pink")}>Pink</button>
+
+<button onClick={()=>setcolorName("white")}>white</button>
+
+<button onClick={()=>setcolorName("orange")}>orange</button>
+
+<button onClick={()=>setcolorName("yellow")}>yellow</button>
+     </div>
   )
 }
 

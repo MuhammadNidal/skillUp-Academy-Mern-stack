@@ -1,14 +1,37 @@
-import React from 'react'
-import Header from '../components/header'
-import Footer from '../components/footer'
-const about = () => {
+import React, { useEffect, useState } from 'react';
+import Header from '../components/header';
+import Footer from '../components/footer';
+
+const About = () => {
+  const [data, setData] = useState([]);
+  const [load, setLoad] = useState(false);
+
+  useEffect(() => {
+    if (load) {
+      fetch("https://jsonplaceholder.typicode.com/users")
+        .then(res => res.json())
+        .then(users => setData(users));
+    }
+  }, [load]);
+
   return (
     <div>
-<Header/>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, ullam officiis placeat recusandae ad reprehenderit dolorum. Odio optio consequatur ullam aperiam repellendus totam sed laborum vero fugit tempora suscipit assumenda cum fuga accusantium nesciunt praesentium distinctio molestias et, non tempore iure vitae eveniet dolores. Quae consequatur possimus at culpa ex recusandae. Quasi unde eligendi quos illo earum aut fuga similique consequatur dicta quaerat, vero, enim iusto sit ut cumque perspiciatis numquam magni. Nisi similique amet quasi est explicabo dolores sapiente at distinctio, nemo fuga animi autem mollitia fugit! Laboriosam omnis, nihil quo molestiae voluptas repellendus esse dolores, similique suscipit libero eaque itaque deserunt commodi autem perferendis facilis nisi, praesentium rerum consequatur perspiciatis labore possimus! Nulla illo autem exercitationem culpa cumque ab, sint quidem ex atque dolor enim amet non sed! Alias optio maiores eveniet doloremque nobis officiis. Repellat esse omnis deserunt ipsam, sunt totam voluptatibus molestias, maxime nobis cupiditate, dolorem soluta tempora nisi eum. Inventore, quia quaerat? Placeat officia dignissimos nobis adipisci nisi quod in? Dicta, consequuntur eius natus suscipit harum earum? Maiores, laboriosam beatae? Debitis praesentium ex odit rem doloribus ad ullam sit aliquid obcaecati exercitationem tenetur voluptatem natus quas est facilis officia numquam tempore, accusamus consequuntur delectus nihil ab! Officia architecto necessitatibus magnam veritatis temporibus, excepturi deserunt numquam sit totam optio, voluptas hic vero distinctio. Ea accusantium, facilis laborum repellat quod quis. Blanditiis officiis inventore dicta hic maiores, labore exercitationem magnam autem laudantium sint reprehenderit omnis asperiores, ea quisquam voluptas dolorum quasi molestias placeat velit possimus. Fugiat nesciunt possimus fugit rerum doloribus veritatis officia, id modi tempore autem cupiditate voluptatibus consequatur et aliquid, earum quo eius delectus iusto repellendus? Unde ad blanditiis ea, quam reiciendis labore deserunt in pariatur exercitationem modi repellendus amet ab, inventore aperiam placeat nulla. Deserunt eum, omnis suscipit ullam non fugit minima illum exercitationem iusto totam, earum recusandae. Harum ducimus iure, cumque fuga repudiandae odit optio quam quae asperiores officiis nesciunt eligendi perferendis dignissimos! Sunt numquam labore laudantium architecto eligendi similique animi est ullam magni molestias. Fuga nam soluta dolor, repellat beatae temporibus eos fugiat nobis maxime enim architecto doloribus quasi quia harum, error omnis quam voluptatibus consectetur! Sit consequuntur iste nesciunt fuga porro labore illum excepturi velit aspernatur illo, neque fugit explicabo pariatur ipsum vel natus officiis dicta dolor autem sunt! Sint libero dolore voluptates sapiente doloremque, maiores, totam, odio facere vero sed explicabo neque ad eaque similique laborum magni ab nulla aliquam.</p>
-      <Footer/>
+      <Header />
+      <p>
+      <button onClick={() => setLoad(true)}>Load Data</button>
+<button onClick={() => {
+  setData([]);  // clear data
+  setLoad(false);
+}}>Hide Data</button>
+
+      {data.map(user => (
+        <p key={user.id}>{user.name}</p>
+      ))}
+
+      </p>
+     <Footer/>
     </div>
   )
 }
 
-export default about
+export default About
