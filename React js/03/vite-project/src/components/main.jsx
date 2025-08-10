@@ -1,7 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState ,useCallback} from 'react'
+import { use } from 'react'
 
 const main = () => {
   const [colorName,setcolorName]= useState("green")
+  const funcitonneed =useCallback(()=>{
+alert("you call the call back function")
+  },[])
   return (
     <div>
 <p>this is the {colorName}</p>
@@ -12,6 +16,9 @@ const main = () => {
 <button onClick={()=>setcolorName("orange")}>orange</button>
 
 <button onClick={()=>setcolorName("yellow")}>yellow</button>
+
+<button onClick={funcitonneed}>call the funtion</button>
+
      </div>
   )
 }

@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import { UserContext } from '../App'; // ✅ Correct import
 
 const About = () => {
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
+
+  // ✅ Access context value
+  const user = useContext(UserContext);
 
   useEffect(() => {
     if (load) {
@@ -17,21 +21,21 @@ const About = () => {
   return (
     <div>
       <Header />
-      <p>
-      <button onClick={() => setLoad(true)}>Load Data</button>
-<button onClick={() => {
-  setData([]);  // clear data
-  setLoad(false);
-}}>Hide Data</button>
+      <p>{`Hello from ${user}`}</p>
 
-      {data.map(user => (
-        <p key={user.id}>{user.name}</p>
+      <button onClick={() => setLoad(true)}>Load Data</button>
+      <button onClick={() => {
+        setData([]);
+        setLoad(false);
+      }}>Hide Data</button>
+
+      {data.map(u => (
+        <p key={u.id}>{u.name}</p>
       ))}
 
-      </p>
-     <Footer/>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;
