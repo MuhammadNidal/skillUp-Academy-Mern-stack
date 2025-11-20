@@ -1,0 +1,16 @@
+.footer{
+    background-color: brown;
+    color: black;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    bottom: 0;    
+    margin-top: 2rem;
+
+    font-size: 1.2rem;
+    margin-top: 550px;
+    overflow: hidden;
+
+    /* overflow-y: hidden; */
+    font-family: 'Arial', sans-serif;
+}

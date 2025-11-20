@@ -9,6 +9,7 @@ console.log(Object.entries(user));
 🟢 Output:
 
 [ ["name", "Nidal"], ["age", 22] ]
+
 🔹 2. Object.values()
 👉 Gets only the values from an object.
 
