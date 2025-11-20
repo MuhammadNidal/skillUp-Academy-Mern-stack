@@ -1,96 +1,108 @@
-3. DOM Manipulation – Add, Remove, Replace Elements
-Teach how to dynamically change the page content:
+🧱 3. DOM Manipulation – Add, Remove, Replace Elements
 
-🔹 Create Elements
+You can create, remove, or replace HTML elements using JavaScript.
 
-js
-Copy
-Edit
+✅ Create an element
+<p id="info">Old paragraph</p>
+
+<script>
 const newPara = document.createElement("p");
 newPara.textContent = "This is new!";
-document.body.appendChild(newPara);
-🔹 Remove Elements
+document.body.appendChild(newPara); // adds it to the end of the body
+</script>
 
-js
-Copy
-Edit
+✅ Remove an element
+<p id="remove">Remove me!</p>
+
+<script>
 const removeMe = document.getElementById("remove");
-removeMe.remove();
-🔹 Replace Elements
+removeMe.remove(); // removes the element
+</script>
 
-js
-Copy
-Edit
+✅ Replace an element
+<h1 id="main">Old Heading</h1>
+
+<script>
 const newHeading = document.createElement("h2");
 newHeading.textContent = "I'm a new heading";
+
 const oldHeading = document.getElementById("main");
 document.body.replaceChild(newHeading, oldHeading);
-🧠 4. DOM Events – Making Pages Interactive
-Teach how to respond to user actions.
+</script>
 
-🔹 Common Event Types: click, mouseover, keydown, change, etc.
+🖱️ 4. DOM Events – Making Pages Interactive
 
-🔹 Add Event Listener
+Events help you respond to user actions (like clicks or typing).
 
-js
-Copy
-Edit
-document.getElementById("btn").addEventListener("click", function () {
+✅ Add Event Listener
+<button id="btn">Click me</button>
+
+<script>
+document.getElementById("btn").addEventListener("click", function() {
   alert("Button clicked!");
 });
-🔹 Remove Event Listener
+</script>
 
-js
-Copy
-Edit
+✅ Remove Event Listener
+<button id="btn">Say Hi</button>
+
+<script>
 function sayHi() {
   alert("Hi!");
 }
-btn.addEventListener("click", sayHi);
-btn.removeEventListener("click", sayHi);
-⌨️ 5. Form Handling and Input Value Access
-How to get input values and handle form submission:
 
-html
-Copy
-Edit
-<input type="text" id="username" />
+const btn = document.getElementById("btn");
+btn.addEventListener("click", sayHi);
+
+// Remove listener
+btn.removeEventListener("click", sayHi);
+</script>
+
+📝 5. Form Handling – Getting Input Values
+
+Learn to read and use form input.
+
+<input type="text" id="username" placeholder="Enter your name" />
 <button onclick="getValue()">Submit</button>
-js
-Copy
-Edit
+
+<script>
 function getValue() {
   const value = document.getElementById("username").value;
   alert("You entered: " + value);
 }
-📦 6. ClassList and Style Toggling
-Control classes with JavaScript.
+</script>
 
-js
-Copy
-Edit
-element.classList.add("new-class");
-element.classList.remove("old-class");
-element.classList.toggle("dark-mode");
-Useful for light/dark mode toggle projects.
+🎨 6. ClassList and Style Toggling
 
-🧰 7. InnerHTML vs textContent vs innerText
-Clear their differences:
+You can change an element’s classes easily.
 
-textContent: returns all content (including hidden).
+<div id="box">Hello</div>
+<button onclick="toggleMode()">Toggle Dark Mode</button>
 
-innerText: only visible text.
+<style>
+.dark-mode { background: black; color: white; }
+</style>
 
-innerHTML: allows you to use HTML tags.
+<script>
+function toggleMode() {
+  const box = document.getElementById("box");
+  box.classList.toggle("dark-mode");
+}
+</script>
 
-🧪 Mini Projects After Each Section
-Color changer
+🧠 7. InnerHTML vs textContent vs innerText
+Property	Description	Example Output
+textContent	Shows all text (including hidden)	"Hello World"
+innerText	Shows only visible text	"Hello" (if “World” is hidden)
+innerHTML	Includes HTML tags	"<b>Hello</b> World"
 
-To-do list
+Example:
 
-Image slider
+<div id="demo"><b>Hello</b> World</div>
 
-Dark mode toggle
-
-Live character counter
-
+<script>
+const el = document.getElementById("demo");
+console.log(el.textContent); // Hello World
+console.log(el.innerText);   // Hello World (visible only)
+console.log(el.innerHTML);   // <b>Hello</b> World
+</script>

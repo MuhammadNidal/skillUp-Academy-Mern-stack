@@ -1,6 +1,6 @@
 Strings
+Template Literals:
 Events
-Switch Statement
 
 🔤 JavaScript Strings
 Strings store text enclosed in quotes.
@@ -16,7 +16,6 @@ String Methods:
 javascript
 
 let name = "Nidal";
-
 console.log(name.length);        // 5
 console.log(name.toUpperCase()); // "NIDAL"
 console.log(name.toLowerCase()); // "nidal"
@@ -51,7 +50,6 @@ Pressing a key on the keyboard ⌨️
 Submitting a form 📝
 
 Loading the page 
-
 💡 Real-Life Example:
 👉 Think of a doorbell:
 
@@ -82,84 +80,32 @@ Edit
 
 
 
-🧠 What is a switch Statement?
-A switch statement in JavaScript is used to make decisions — just like an if...else chain, but more organized and cleaner when you have many conditions to check.
 
-📦 Syntax of switch
-javascript
-Copy
-Edit
-switch (expression) {
-  case value1:
-    // Code runs if expression === value1
-    break;
-  case value2:
-    // Code runs if expression === value2
-    break;
-  default:
-    // Code runs if no case matches
-}
 
-Any other button → “Invalid choice”
 
-Just like that, the switch checks which case matches your choice.
 
-🔍 Explanation:
-choice is 2
+✅ 3. reduce()
+🔹 What it does:
+reduce() is used to combine all values in an array into a single result (like total sum, average, etc.).
 
-It checks each case
+🔹 Syntax:
+js
 
-When it reaches case 2, it runs that block: console.log("You chose Pepsi")
+array.reduce((accumulator, currentValue) => {
+  return newAccumulator;
+}, initialValue);
+🔹 Example (sum):
+js
 
-Then it hits break and exits
+const numbers = [1, 2, 3, 4];
 
-🔁 Why Use break?
-The break statement stops the switch from continuing.
+const total = numbers.reduce((sum, num) => sum + num, 0);
 
-If you don’t use break, it will run the next cases too (called "fall-through").
+console.log(total); // 10
+👉 reduce() is very powerful, often used for calculations.
 
-❌ Without break Example (Fall-Through Behavior)
-javascript
-let day = 1;
-
-switch (day) {
-  case 1:
-    console.log("Monday");
-  case 2:
-    console.log("Tuesday");
-  case 3:
-    console.log("Wednesday");
-}
-Output:
-
-Monday
-Tuesday
-Wednesday
-✅ To avoid this, always use break (unless you want multiple cases to run).
-
-🌟 Using default
-default runs when none of the cases match.
-
-It’s like the else in if...else.
-
-javascript
-Copy
-Edit
-let color = "purple";
-
-switch (color) {
-  case "red":
-    console.log("Red is selected");
-    break;
-  case "blue":
-    console.log("Blue is selected");
-    break;
-  default:
-    console.log("Color not available");
-}
-🧠 When to Use switch Instead of if...else?
-✅ Use switch when:
-
-You are checking one variable against many possible values
-
-For example: menu options, days, colors, etc.
+💡 Summary Table:
+Method	What it does	Returns	Use Case
+map()	Transforms each item	New array	Doubling, formatting values
+filter()	Keeps only matching items	New array	Getting evens, filtering data
+reduce()	Combines items into one value	Single value	Total, average, grouping

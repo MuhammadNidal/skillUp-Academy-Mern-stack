@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+  greet() {
+    console.log(`Hello, my name is ${this.name} and`);
+  }
+}
+class Student extends Person  {
+  constructor(name,age) {
+    super(name)
+    this.age = age;
+  }
+   study() {
+    console.log(` this is name ${this.name} is studying in age ${this.age}`);
+  }
+}
+const student1= new Student("nidal",22)
+// console.log(student1.study())
+console.log(student1);
+
+// console.log(student1);
+
+
+
+class BankAccount {
+  #balance = 0; // private property
+
+  deposit(amount) {
+    this.#balance += amount;
+    console.log(`Deposited: ${amount}`);
+  }
+
+  getBalance() {
+    return this.#balance; // can access inside
+  }
+}
+
+const account = new BankAccount();
+account.deposit(500);
+account.deposit(100);
+account.deposit(1000);
+console.log(account.getBalance()); // ✅ Works
+// console.log(account.#balance); 
+
+
+class MathHelper {
+  static add(a, b) {
+    return a + b;
+  }
+}
+
+console.log(MathHelper.add(5, 10)); 
+    </script>
+</body>
+</html>

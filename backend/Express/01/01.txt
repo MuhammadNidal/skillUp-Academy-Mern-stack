@@ -1,0 +1,230 @@
+
+
+🚀 3. Getting Started with Express.js
+1️⃣ What is Express.js and Why Use It?
+
+Theory:
+
+Express.js is a backend framework for Node.js.
+
+It helps us build web servers and APIs easily.
+
+Without Express, writing routes and handling requests in Node.js can be long and messy.
+
+Express gives us shortcuts and tools for:
+
+Handling routes (/home, /about, etc.)
+
+Managing HTTP requests (GET, POST, etc.)
+
+Sending responses (HTML, JSON, files)
+
+Middleware (extra features like authentication, logging)
+
+👉 Why use it?
+
+Lightweight and fast ⚡
+
+Easy to learn for beginners
+
+Widely used in the industry (MERN stack = MongoDB, Express, React, Node)
+
+Simple Analogy:
+Think of Node.js as a "raw kitchen." Express.js is the organized chef who arranges recipes, ingredients, and tools so cooking (coding) becomes easy.
+
+2️⃣ Installing Express.js
+
+Steps:
+
+Make a project folder:
+
+mkdir myapp
+cd myapp
+
+
+Initialize Node.js project:
+
+npm init -y
+
+
+Install Express:
+
+npm install express
+
+
+✅ Now Express is ready to use.
+
+3️⃣ Setting Up Your First Express App
+
+Create a file app.js and write:
+
+// 1. Import express
+const express = require('express');
+
+// 2. Create an app
+const app = express();
+
+// 3. Create a simple route
+app.get('/', (req, res) => {
+  res.send('Hello, Express.js World!');
+});
+
+// 4. Start server
+app.listen(3000, () => {
+  console.log('Server is running on http://localhost:3000');
+});
+
+
+👉 Explanation:
+
+express() → creates an Express application.
+
+app.get('/', ...) → handles requests to the home page.
+
+res.send() → sends response to browser.
+
+app.listen(3000) → starts the server on port 3000.
+
+Now run:
+
+node app.js
+
+
+Open in browser → http://localhost:3000
+
+4️⃣ Understanding app.get(), app.post(), app.listen()
+🔹 app.get(path, callback)
+
+Used for GET requests (like when user visits a page).
+
+Example:
+
+app.get('/about', (req, res) => {
+  res.send('This is the About Page');
+});
+
+🔹 app.post(path, callback)
+
+Used for POST requests (like submitting a form).
+
+Example:
+
+app.post('/login', (req, res) => {
+  res.send('Login form submitted!');
+});
+
+🔹 app.listen(port, callback)
+
+Starts the server.
+
+Example:
+
+app.listen(4000, () => {
+  console.log('Server started on http://localhost:4000');
+});
+
+
+
+
+
+
+
+
+
+
+📌 Working with Static Data in Express.js
+1️⃣ Example: Sending a Simple JSON Object
+
+Instead of just sending text, we can send static data like a JSON object (like a database but hardcoded for now).
+
+const express = require('express');
+const app = express();
+
+// Static data
+const students = [
+  { id: 1, name: "Ali", course: "Web Development" },
+  { id: 2, name: "Sara", course: "Digital Marketing" },
+  { id: 3, name: "Nidal", course: "MERN Stack" }
+];
+
+// Route to get all students
+app.get('/students', (req, res) => {
+  res.json(students);  // send JSON response
+});
+
+// Start server
+app.listen(3000, () => {
+  console.log("Server running on http://localhost:3000");
+});
+
+
+👉 Now open http://localhost:3000/students
+
+You will see:
+
+[
+  { "id": 1, "name": "Ali", "course": "Web Development" },
+  { "id": 2, "name": "Sara", "course": "Digital Marketing" },
+  { "id": 3, "name": "Nidal", "course": "MERN Stack" }
+]
+
+2️⃣ Example: Sending Single Student by ID (Dynamic Route)
+
+We can fetch one student using app.get() with a route parameter.
+
+// Route to get single student by ID
+app.get('/students/:id', (req, res) => {
+  const studentId = parseInt(req.params.id);
+  const student = students.find(s => s.id === studentId);
+
+  if (student) {
+    res.json(student);
+  } else {
+    res.status(404).send("Student not found");
+  }
+});
+
+
+👉 Try visiting:
+
+http://localhost:3000/students/1
+ → returns Ali
+
+http://localhost:3000/students/99
+ → returns "Student not found"
+
+3️⃣ Example: Adding Data with app.post()
+
+Since we don’t have a database yet, we’ll push data into our array.
+
+// Middleware to parse JSON body
+app.use(express.json());
+
+// Add a new student
+app.post('/students', (req, res) => {
+  const newStudent = {
+    id: students.length + 1,
+    name: req.body.name,
+    course: req.body.course
+  };
+
+  students.push(newStudent);
+  res.status(201).json(newStudent);
+});
+
+
+👉 Use Postman or any API tool:
+
+POST http://localhost:3000/students
+
+Body → JSON:
+
+{
+  "name": "Ahmed",
+  "course": "UI/UX Design"
+}
+
+
+Response:
+
+{ "id": 4, "name": "Ahmed", "course": "UI/UX Design" }

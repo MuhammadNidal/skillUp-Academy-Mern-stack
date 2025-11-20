@@ -1,0 +1,104 @@
+
+4. Inheritance (extends, super)
+🧠 Simple Explanation:
+
+Inheritance means one class can use features of another class.
+We use extends to connect them and super() to call parent constructor.
+
+🧩 Example:
+// Parent class
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+  greet() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+}
+
+// Child class (inherits from Person)
+class Student extends Person {
+  constructor(name, grade) {
+    super(name); // calls parent constructor
+    this.grade = grade;
+  }
+
+  study() {
+    console.log(`${this.name} is studying in grade ${this.grade}`);
+  }
+}
+
+const student1 = new Student("Ali", 10);
+student1.greet();  // from Person
+student1.study();  // from Student
+
+🧾 Explanation:
+
+extends → connects child to parent
+
+super() → calls parent constructor to use its properties
+
+Child class gets access to parent methods automatically
+
+🔒 5. Encapsulation (Private and Public Properties)
+🧠 Simple Explanation:
+
+Encapsulation means hiding details of how something works — so data can’t be accessed directly from outside the class.
+
+We use:
+
+Public properties → can be accessed anywhere.
+
+Private properties → can only be used inside the class (with # in front).
+
+🧩 Example:
+class BankAccount {
+  #balance = 0; // private property
+
+  deposit(amount) {
+    this.#balance += amount;
+    console.log(`Deposited: ${amount}`);
+  }
+
+  getBalance() {
+    return this.#balance; // can access inside
+  }
+}
+
+const account = new BankAccount();
+account.deposit(500);
+console.log(account.getBalance()); // ✅ Works
+// console.log(account.#balance);  ❌ Error (private)
+
+🧾 Explanation:
+
+#balance → private, cannot access outside
+
+Only class methods can use it safely
+
+This keeps your data safe from direct modification
+
+⚡ 6. Static Methods
+🧠 Simple Explanation:
+
+A static method belongs to the class itself, not to the objects created from it.
+
+You call it using the class name, not the object.
+
+🧩 Example:
+class MathHelper {
+  static add(a, b) {
+    return a + b;
+  }
+}
+
+console.log(MathHelper.add(5, 10)); // ✅ 15
+
+const obj = new MathHelper();
+// obj.add(5, 10); ❌ Error - not available on object
+
+🧾 Explanation:
+
+static → makes method belong to class, not instance.
+
+Used for utility/helper functions (like math operations, formatters, etc.).

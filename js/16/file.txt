@@ -1,0 +1,163 @@
+🧰 1. localStorage & sessionStorage
+
+Both are part of the Web Storage API — which lets you store data inside the browser.
+
+They’re like small databases built right into your browser.
+
+🧩 Difference Between localStorage and sessionStorage
+Feature	localStorage	sessionStorage
+🕒 Lifetime	Data stays forever (until you delete it manually or clear browser data)	Data is deleted when the tab or browser is closed
+🌍 Scope	Shared across all tabs and windows of the same site	Only for the current tab
+💾 Storage Limi5MBt	Around 	Around 5MB
+🧠 How to Use Them
+
+Both have the same methods:
+
+Method	What it does
+.setItem(key, value)	Save data
+.getItem(key)	Read data
+.removeItem(key)	Delete specific data
+.clear()	Delete all data
+🧩 Example 1 — localStorage
+// Save data in localStorage
+localStorage.setItem('username', 'Nidal');
+
+// Get data from localStorage
+let user = localStorage.getItem('username');
+console.log(user); // Output: Nidal
+
+// Remove one item
+localStorage.removeItem('username');
+
+// Clear all data
+localStorage.clear();
+
+
+📝 Explanation:
+
+setItem saves a key–value pair (both are strings).
+
+getItem reads it.
+
+removeItem deletes one key.
+
+clear wipes everything.
+
+🧩 Example 2 — sessionStorage
+// Save data in sessionStorage
+sessionStorage.setItem('theme', 'dark');
+
+// Get data
+let theme = sessionStorage.getItem('theme');
+console.log(theme); // Output: dark
+
+// Remove data
+sessionStorage.removeItem('theme');
+
+// Clear all
+sessionStorage.clear();
+
+
+📝 Explanation:
+
+Works same as localStorage, but only for the current tab/session.
+
+If you close the tab, data disappears.
+
+⚠️ Important Note
+
+localStorage and sessionStorage only store strings.
+
+If you want to store an object or array, convert it to a JSON string using JSON.stringify().
+
+🧩 Example 3 — Store an Object
+let userInfo = {
+  name: "Nidal",
+  age: 22,
+  country: "Pakistan"
+};
+
+// Save object (must convert to JSON string)
+localStorage.setItem("user", JSON.stringify(userInfo));
+
+// Get object (convert back to object)
+let data = JSON.parse(localStorage.getItem("user"));
+console.log(data.name); // Output: Nidal
+
+✅ Summary
+Concept	localStorage	sessionStorage
+Lifespan	Permanent	Until tab closed
+Access	All tabs (same origin)	Only current tab
+Use for	Long-term data (theme, login token)	Temporary data (form input)
+
+
+
+
+2. Event Loop & Microtasks
+🧠 Simple Explanation:
+
+JavaScript is single-threaded — it runs one thing at a time.
+
+But we can run asynchronous tasks (like setTimeout, API calls, etc.) without blocking other code.
+The Event Loop helps manage:
+
+Main stack (normal code)
+Callback queue (like setTimeout)
+Microtask queue (like Promises)
+
+🧩 Example:
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Timeout callback");
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log("Promise resolved");
+});
+
+console.log("End");
+
+🧾 Output:
+Start
+End
+Promise resolved
+Timeout callback
+
+🔍 Explanation:
+
+Start and End run first — they are normal synchronous code.
+
+Then the Promise (microtask) runs before the setTimeout (callback queue).
+
+So event loop manages the order — promises are prioritized.
+
+
+window object
+
+The global object in the browser.
+
+Everything (alert, console, document, etc.) is part of window.
+
+window.alert("Hello!");
+console.log(window.innerWidth); // Width of the browser window
+
+🧩 location object
+
+Used to get or change the URL.
+
+console.log(location.href); // full URL
+console.log(location.hostname); // domain name
+console.log(location.pathname); // page path
+// Reload the page
+// location.reload();
+// Redirect to another page
+// location.href = "https://www.google.com";
+
+🧩 navigator object
+
+Gives info about the browser and user’s device.
+
+console.log(navigator.userAgent); // Browser info
+console.log(navigator.language);  // Browser language
+console.log(navigator.onLine);    // true if connected to internet

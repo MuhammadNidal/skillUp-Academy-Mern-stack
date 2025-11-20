@@ -37,29 +37,3 @@ const even = numbers.filter(num => num % 2 === 0);
 
 console.log(even); // [2, 4]
 👉 Filters based on condition. Original array stays the same.
-
-✅ 3. reduce()
-🔹 What it does:
-reduce() is used to combine all values in an array into a single result (like total sum, average, etc.).
-
-🔹 Syntax:
-js
-
-array.reduce((accumulator, currentValue) => {
-  return newAccumulator;
-}, initialValue);
-🔹 Example (sum):
-js
-
-const numbers = [1, 2, 3, 4];
-
-const total = numbers.reduce((sum, num) => sum + num, 0);
-
-console.log(total); // 10
-👉 reduce() is very powerful, often used for calculations.
-
-💡 Summary Table:
-Method	What it does	Returns	Use Case
-map()	Transforms each item	New array	Doubling, formatting values
-filter()	Keeps only matching items	New array	Getting evens, filtering data
-reduce()	Combines items into one value	Single value	Total, average, grouping

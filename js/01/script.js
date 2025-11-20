@@ -1,29 +1,21 @@
-alert("Hello, World!");
-console.log("Hello, World!");
+// alert("Hello, World!");
+// console.log("Hello, World!");
 document.write("Hello, World!");
 
 
 
 
-const b="nidal";
+const b=2;
 const a="uzair";
-// console.log(a);
-
-// let f;
-// f=5
+console.log(b);
 
 
-const x = 5; // Global variable
-const y = 10; // Global variable
-const z=x / y; // Global variable
-console.log(z);
 
+// // primitive Datatype
 
-// primitive Datatype
-
-let name="123556778";
+let name="muhammad nidal";
 // let age=20;
-alert(name);
+// alert(name);
 console.log(name);
 
 
@@ -52,37 +44,70 @@ console.log(bigInt);
 
 
 
-// non-primitive Datatype
-// array
+// // non-primitive Datatype
+// // array
+
+let academy =[22,"nidal",3434,"fsdfsdfsdfsd"]
+
+console.log(academy);
 
 
-let array=[1,"sdaksd",2,3,4,5,6,7,8,9,10];
-console.log(array);
-
-
-// object
-
-
-let schooldata={
- name:"nidal",
- age:20,
-    rollno:123456,
-    class:10,
-    section:"A",    
+let academyInformation ={
+    name:"nidal",
+    class:"BS",
+    rollNo :"1212",
+    marks:2323,
 }
-console.log(schooldata);
+
+console.log(academyInformation);
 
 
 
-// fucntion
 
-function add(a,b){
-    return a-b;
-}   
-// console.log(add(5,10));
-
-console.log(add(23,30));
-console.log(add(51,110));
-console.log(add(511,110));
+// // object
 
 
+// let schooldata={
+//  name:"nidal",
+//  age:20,
+//     rollno:123456,
+//     class:10,
+//     section:"A",    
+// }
+// console.log(schooldata);
+
+
+
+// // fucntion
+
+// function add(a,b){
+//     return a-b;
+// }   
+// // console.log(add(5,10));
+
+// console.log(add(23,30));
+// console.log(add(51,110));
+// console.log(add(511,110));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function add(a,b) {
+    
+    console.log("hello  from funciton" ,a+b);
+    
+}
+
+add(11,22)

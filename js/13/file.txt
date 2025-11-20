@@ -1,0 +1,110 @@
+🧠 What is the Math Object?
+
+The Math object in JavaScript helps us perform mathematical calculations — like rounding numbers, finding powers, square roots, generating random numbers, etc.
+
+
+🔢 Number to Integer Methods
+
+JavaScript provides 4 main methods to convert a number to an integer.
+
+Method	Description	Example	Output
+Math.round(x)	Rounds to nearest integer	Math.round(4.6)	5
+		                                    Math.round(4.4)	4
+Math.ceil(x)	Rounds up	                                      Math.ceil(4.2)	5
+		                                                         Math.ceil(-4.2)	-4
+Math.floor(x)	Rounds down	                Math.floor(4.9)	4
+		                                    Math.floor(-4.2)	-5
+Math.trunc(x)	Removes decimal part	                            Math.trunc(4.9)	4
+		                                                            Math.trunc(-4.9)	-4
+
+👉 Teaching Tip:
+
+round = normal rounding
+ceil = ceiling → goes up
+floor = floor → goes down
+trunc = cuts off decimal (just removes it)
+
+➕ Math.sign()
+
+Used to check if a number is positive, negative, or zero.
+
+Example	Output	Explanation
+Math.sign(-4)	-1	Negative number
+Math.sign(0)	0	Zero
+Math.sign(4)	1	Positive number
+
+✖️ Math.pow(x, y)
+
+Returns x raised to the power of y (xʸ).
+
+console.log(Math.pow(2, 3)); // 8
+console.log(Math.pow(5, 2)); // 25
+
+🧮 Math.sqrt(x)
+
+Returns the square root of a number.
+
+console.log(Math.sqrt(64)); // 8
+console.log(Math.sqrt(9));  // 3
+
+
+➕ Math.abs(x)
+
+Returns the absolute value (always positive).
+
+console.log(Math.abs(-4.7)); // 4.7
+console.log(Math.abs(4.7));  // 4.7
+
+
+
+🔼 Math.min() and Math.max()
+
+Used to find minimum or maximum values from a list.
+
+console.log(Math.min(0, 150, 30, 20, -8, -200)); // -200
+console.log(Math.max(0, 150, 30, 20, -8, -200)); // 150
+
+🎲 Math.random()
+
+Generates a random number between 0 (inclusive) and 1 (exclusive).
+
+console.log(Math.radonm()); // Example: 0.472815362
+
+
+👉 To get a random number between 0 and 100:
+console.log(Math.random() * 100);
+
+
+👉 To get a random integer between 1 and 10:
+console.log(Math.floor(Math.random() * 10) + 1);
+
+🧩 Example Practice Program
+Let’s combine what we learned:
+
+// Example: Random number guessing demo
+let randomNumber = Math.floor(Math.random() * 10) + 1; // 1–10
+console.log("Random Number:", randomNumber);
+
+console.log("Rounded:", Math.round(4.7));
+console.log("Ceil:", Math.ceil(4.2));
+console.log("Floor:", Math.floor(4.8));
+
+console.log("Power:", Math.pow(2, 4));  // 16
+console.log("Square Root:", Math.sqrt(81));  // 9
+console.log("Absolute:", Math.abs(-10));  // 10
+console.log("Min:", Math.min(1, 5, -3, 9));  // -3
+console.log("Max:", Math.max(1, 5, -3, 9));  // 9
+
+🎓 Summary Table
+Method	Description	Example	Output
+Math.round(4.6)	Nearest integer	5	
+Math.ceil(4.2)	Round up	5	
+Math.floor(4.9)	Round down	4	
+Math.trunc(4.9)	Remove decimal	4	
+Math.sign(-5)	Sign of number	-1	
+Math.pow(2, 3)	2³	8	
+Math.sqrt(49)	√49	7	
+Math.abs(-9)	Absolute value	9		
+Math.min(1,2,3)	Minimum	1	
+Math.max(1,2,3)	Maximum	3	
+Math.random()	Random number	0–1

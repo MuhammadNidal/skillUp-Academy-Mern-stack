@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+
+    class student{
+    constructor(name,fatherName,age){
+    this.name =name;
+    this.fatherName=fatherName
+    this.age =age;
+}
+  displayInfo() {
+    return `Name: ${this.name}, fathername: ${this.fatherName}, age: ${this.age}`;
+  }
+    }
+
+    const student1 = new student("nidal","akbar",20)
+    const student2 = new student("bilal","kaka",33)
+console.log(student1);
+console.log(student1.displayInfo);
+
+console.log(student2);
+
+
+const student1212 =
+{
+     name: "Ali", 
+age: 20, 
+grade: "A"
+ };
+
+ const {name,age} =student1212
+ console.log(name);
+ console.log(age);
+
+ 
+
+const student121212 = new Object();
+student121212.name = "Nidal";
+student121212.age = 22;
+student121212.display = function() {
+  console.log(`Name: ${this.name}, Age: ${this.age}`);
+};
+
+student121212.display();
+
+const person = { name: "Ali" };
+const details = { age: 21, city: "Lahore" };
+const information ={old:22,names:"nidal"}
+
+const student14 = Object.assign({}, person, details,information);
+console.log(student14)
+
+
+const entries = [
+  ["name", "Usman"],
+  ["age", 23],
+  ["city", "Karachi"]
+];
+
+const student55 = Object.fromEntries(entries);
+console.log(student55);
+
+</script>
+
+</body>
+</html>

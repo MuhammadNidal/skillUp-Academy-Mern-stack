@@ -1,0 +1,144 @@
+Here’s the full updated code with explanations:
+
+
+npm init -y
+npm install express
+npm install --save-dev nodemon
+{
+  "name": "express-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",     // Run with normal node
+    "dev": "nodemon index.js"     // Run with nodemon
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
+
+
+
+
+const express = require('express');
+const app = express();
+
+// Middleware to parse JSON data from the request body
+app.use(express.json());
+
+// Dummy database (array of students)
+const students = [
+    {id:1,name:'John'},
+    {id:2,name:'Jane'},
+    {id:3,name:'Doe'}
+]
+
+// ----------- ROUTES -----------
+
+// Home route
+app.get('/home',(req,res)=>{
+    res.send('Welcome to the Home Page')
+})
+
+// Get all students
+app.get('/students',(req,res)=>{
+    res.json(students)
+})
+
+// Get single student by ID
+app.get('/students/:id',(req,res)=>{
+    const studentId = parseInt(req.params.id)
+    const student  = students.find(a=>a.id===studentId)
+    if (!student) {
+        return res.status(404).json({message: 'Student not found'})
+    }
+    else {
+        res.json(student)
+    }
+})
+
+// About route
+app.get('/about',(req,res)=>{
+    res.send('Welcome to the About Page')
+})
+
+
+// ------------------- POST Method -------------------
+/**
+ * @route   POST /students
+ * @desc    Add a new student
+ * @access  Public
+ * 
+ * Example:
+ * Send a POST request to /students with JSON body:
+ * {
+ *   "name": "Alice"
+ * }
+ */
+app.post('/students', (req, res) => {
+  const newStudent = {
+    id: students.length + 1, // Auto-increment ID
+    name: req.body.name
+  };
+
+  students.push(newStudent); // Add student to array
+  res.status(201).json(newStudent); // Return the newly created student
+});
+
+
+// ------------------- DELETE Method -------------------
+/**
+ * @route   DELETE /students/:id
+ * @desc    Delete a student by ID
+ * @access  Public
+ * 
+ * Example:
+ * Send a DELETE request to /students/2
+ * (This will delete the student with ID 2 if exists)
+ */
+app.delete('/students/:id', (req, res) => {
+  const studentId = parseInt(req.params.id);
+  const studentIndex = students.findIndex(a => a.id === studentId);
+
+  if (studentIndex === -1) {
+    return res.status(404).json({ message: 'Student not found' });
+  }
+
+  // Remove student from array
+  const deletedStudent = students.splice(studentIndex, 1);
+  res.json({ message: 'Student deleted successfully', deletedStudent });
+});
+
+
+// Server setup
+app.listen(3000,()=>{
+    console.log('Server is running on port 3000');
+})
+
+📘 Explanation for Students
+
+app.post('/students', ...)
+
+This is used to add a new student.
+
+You send data (like name) in the request body as JSON.
+
+Example request in Postman:
+
+{
+  "name": "Alice"
+}
+
+
+The server will create a new student with a unique ID and return it.
+
+app.delete('/students/:id', ...)
+
+This is used to delete a student by their ID.
+
+You give the ID in the URL (like /students/2).
+
+If the student exists, it deletes them. If not, it shows an error (Student not found).

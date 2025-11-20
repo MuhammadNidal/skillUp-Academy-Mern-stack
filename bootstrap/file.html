@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<style>
+    .class{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 120px;
+        flex-wrap: wrap;
+
+      }
+      .slider {
+  width: 90%;
+  margin-top: 30px;
+  height: auto; /* Let it auto fit image */
+  margin: auto; /* Center it */
+}
+
+.carousel-inner img {
+  height: 500px; /* Or whatever height you like */
+}
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 40px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-title {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: #333;
+    }
+
+    .card-text {
+      color: #555;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary
+  " data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Ecomerence platform</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/skillUp-Academy-Mern-stack/bootstrap/about.html">About</a>
+        </li>
+            <li class="nav-item">
+          <a class="nav-link " aria-disabled="">Contact form</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<div id="carouselExampleRide" class="carousel slide update-carousel" data-bs-ride="true">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="./download (4).jpeg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="./download (5).jpeg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="./download (8).jpeg " class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="row">
+    <div class="card">
+      <img src="./download (4).jpeg" alt="Card image">
+      <div class="card-body">
+        <h5 class="card-title">Card Title 1</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="./download (6).jpeg" alt="Card image">
+      <div class="card-body">
+        <h5 class="card-title">Card Title 2</h5>
+        <p class="card-text">This content is a little bit longer and fits nicely inside the card layout.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="./download (7).jpeg" alt="Card image">
+      <div class="card-body">
+        <h5 class="card-title">Card Title 3</h5>
+        <p class="card-text">Supporting text below as a natural lead-in to more information.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="./download.jpeg" alt="Shoes section">
+      <div class="card-body">
+        <h5 class="card-title">Shoes Section</h5>
+        <p class="card-text">This is a longer card with supporting text and a description of the shoes section.</p>
+      </div>
+    </div>
+  </div>
+
+  <form>
+
+    <div>
+
+         <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Name</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+
+<label for="range2" class="form-label">Example range</label>
+<input type="range" class="form-range" min="0" max="5" id="range2">
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

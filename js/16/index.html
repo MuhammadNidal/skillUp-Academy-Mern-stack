@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Save data
+localStorage.setItem("name", "Nidal");
+localStorage.setItem("fathername", "akbar");
+
+
+
+sessionStorage.setItem("city", "Lahore");
+
+// Get data
+console.log(localStorage.getItem("name"));  // Output: Nidal
+console.log(localStorage.getItem("fathername"));  // Output: Nidal
+console.log(sessionStorage.getItem("city")); // Output: Lahore
+
+// Remove one item
+console.log(localStorage.removeItem("name"));
+
+// Clear all data
+console.log(sessionStorage.clear());
+console.log(localStorage.clear());
+// window.alert("Hello!");
+// console.log(window.innerWidth); // Width of the browser window
+// console.log(location.href); // full URL
+// console.log(location.hostname); // domain name
+// console.log(location.pathname); 
+
+
+
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Timeout callback");
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log("Promise resolved");
+});
+
+console.log("End");
+
+
+window.alert("Hello!");
+console.log(window.innerWidth);
+
+
+console.log(location.href); // full URL
+console.log(location.hostname); // domain name
+console.log(location.pathname);
+
+
+console.log(navigator.userAgent); // Browser info
+console.log(navigator.language);  // Browser language
+console.log(navigator.onLine);    // true if connected to internet
+
+    </script>
+</body>
+</html>

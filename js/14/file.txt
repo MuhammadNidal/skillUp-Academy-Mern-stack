@@ -1,0 +1,251 @@
+
+Class vs Object — explained 
+
+Imagine: a blueprint for a house and one house built from that blueprint.
+The class is the blueprint (it describes what things/rooms the house will have).
+The object is the actual house built from that blueprint (it has real values).
+
+1) Class (the blueprint)
+A class defines the shape and behavior: what properties (data) objects will have, and what methods (actions) they can do.
+In JavaScript (modern style) we use the class keyword.
+Simple code example — a very small Student class:
+
+class Student {
+  // methods and constructor go here
+}
+
+
+Think: “Student” is the blueprint that says every student should have a name, age, and a way to show info.
+
+2) Object (the thing made from the blueprint)
+An object is an instance of a class. Each object has its own values.
+We create an object from a class using the new keyword.
+
+Example: create two student objects from the Student class:
+const student1 = new Student();
+const student2 = new Student();
+
+
+Each student1 and student2 is an independent object you can set values on.
+Step-by-step: Class → Constructor → Creating objects
+We’ll build a Student class step by step.
+
+Step 0 — Plan what a Student needs
+Decide properties and methods:
+Properties: name, age, grade
+
+Methods: displayInfo() to show student info
+
+Step 1 — Start the class
+class Student {
+  // we'll add constructor and methods next
+}
+
+Step 2 — Add a constructor
+
+The constructor is a special method inside the class that runs automatically when you make a new object.
+Use it to initialize (set) the object's properties.
+
+class Student {
+  constructor(name, age, grade) {
+    // this.name belongs to the object being created
+    this.name = name;
+    this.age = age;
+    this.grade = grade;
+  }
+}
+
+
+Explanation: this means “the object we are creating right now”. this.name = name stores the passed name into the object.
+
+Step 3 — Add a method
+class Student {
+  constructor(name, age, grade) {
+    this.name = name;
+    this.age = age;
+    this.grade = grade;
+  }
+
+  displayInfo() {
+    return `Name: ${this.name}, Age: ${this.age}, Grade: ${this.grade}`;
+  }
+}
+displayInfo() is shared by all student objects (not duplicated per object).
+
+Step 4 — Create objects (instances)
+const s1 = new Student("Ali", 20, "A");   // calls constructor automatically
+const s2 = new Student("Sara", 19, "B");
+
+Step 5 — Use the objects
+console.log(s1.displayInfo()); // Name: Ali, Age: 20, Grade: A
+console.log(s2.displayInfo()); // Name: Sara, Age: 19, Grade: B
+
+Small variations & tips
+Default values in constructor
+
+class Student {
+  constructor(name = "Unknown", age = 0, grade = "N/A") {
+    this.name = name;
+    this.age = age;
+    this.grade = grade;
+  }
+}
+
+
+If a value is not given, the default is used.
+Add another method that changes state
+
+class Student {
+  constructor(name, age, grade) {
+    this.name = name;
+    this.age = age;
+    this.grade = grade;
+  }
+  displayInfo() { return `${this.name}, ${this.age}, ${this.grade}`; }
+  updateGrade(newGrade) { this.grade = newGrade; } // mutates object
+}
+
+const s = new Student("Amina", 21, "B");
+s.updateGrade("A");
+console.log(s.displayInfo()); // Amina, 21, A
+
+
+Objects created from classes are independent
+Changing s1 does not affect s2.
+
+Quick checklist to remember
+
+Class = blueprint (use class MyClass {})
+Constructor = special method constructor(...) that sets up new objects
+new = makes a fresh object from the class and runs the constructor
+this = refers to the object being created / used inside class methods
+
+
+
+
+🏗️ 2. Constructor in JavaScript
+
+A constructor is a special method inside a class that is called automatically when a new object is created.
+It’s used to initialize object properties.
+
+💻 Example:
+class Car {
+  constructor(brand, model) {
+    this.brand = brand;
+    this.model = model;
+  }
+}
+
+const car1 = new Car("Toyota", "Corolla");
+console.log(car1.brand); // Toyota
+
+🧱 3. Object Constructor Function (Old Way)
+
+Before class syntax, JavaScript used constructor functions to create objects.
+
+💻 Example:
+function Student(name, age) {
+  this.name = name;
+  this.age = age;
+  this.display = function() {
+    console.log(`Name: ${this.name}, Age: ${this.age}`);
+  };
+}
+
+const student = new Student("Hassan", 21);
+student.display(); // Name: Hassan, Age: 21
+
+🧰 4. Destructuring Objects
+
+Destructuring allows us to unpack properties from objects into variables easily.
+
+💻 Example:
+const student = { name: "Ali", age: 20, grade: "A" };
+
+// Destructuring
+const { name, grade } = student;
+
+console.log(name);  // Ali
+console.log(grade); // A
+
+🧾 5. Object Methods for Creating Objects
+(A) Using an Object Literal
+
+Simplest way — write the object directly.
+
+const student = {
+  name: "Ayesha",
+  age: 19,
+  display() {
+    console.log(`Name: ${this.name}, Age: ${this.age}`);
+  }
+};
+
+student.display();
+
+(B) Using the new Object() Keyword
+
+This creates an empty object, and then we add properties manually.
+
+const student = new Object();
+student.name = "Nidal";
+student.age = 22;
+student.display = function() {
+  console.log(`Name: ${this.name}, Age: ${this.age}`);
+};
+
+student.display();
+
+(C) Using an Object Constructor
+
+This uses a function to create multiple objects with similar structure.
+
+function Student(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+const s1 = new Student("Ahmad", 18);
+const s2 = new Student("Fatima", 20);
+
+console.log(s1.name); // Ahmad
+console.log(s2.name); // Fatima
+
+(D) Using Object.assign()
+
+This method copies properties from one or more source objects into a target object.
+
+const person = { name: "Ali" };
+const details = { age: 21, city: "Lahore" };
+
+const student = Object.assign({}, person, details);
+console.log(student); // { name: 'Ali', age: 21, city: 'Lahore' }
+
+(E) Using Object.create()
+
+Creates a new object and links it to an existing object (prototype-based).
+
+const studentProto = {
+  displayInfo() {
+    console.log(`Name: ${this.name}, Age: ${this.age}`);
+  }
+};
+
+const student = Object.create(studentProto);
+student.name = "Zara";
+student.age = 19;
+
+student.displayInfo(); // Name: Zara, Age: 19
+
+(F) Using Object.fromEntries()
+
+Converts key-value pairs (like from Map or array) into an object.
+
+const entries = [
+  ["name", "Usman"],
+  ["age", 23],
+  ["city", "Karachi"]
+];
+
+const student = Object.fromEntries(entries);
+console.log(student); // { name: 'Usman', age: 23, city: 'Karachi' }

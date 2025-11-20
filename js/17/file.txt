@@ -1,0 +1,165 @@
+🧠 1. Basics & Core Concepts
+
+✅ These are the foundation.
+
+What is JavaScript (uses in web development)
+How JS runs (browser, Node.js, interpreter, engine like V8)
+Variables: var, let, const
+Data Types: string, number, boolean, undefined, null, object, symbol, bigint
+
+Type Conversion (implicit vs explicit)
+
+Operators:
+Arithmetic, Assignment, Comparison, Logical
+Ternary operator condition ? value1 : value2
+
+Strings and Template Literals
+Numbers and Math object
+Conditional statements: if, else if, else, switch
+
+Loops: for, while, do...while, for...of, for...in
+🧩 2. Functions
+Function Declaration vs Expression
+Arrow functions () => {}
+
+Parameters & Return values
+
+Default parameters
+
+Function scope and variable hoisting
+
+Callback functions
+
+Higher-order functions (functions that take or return other functions)
+
+Anonymous functions
+
+📦 3. Arrays and Objects
+
+Creating arrays and objects
+
+Accessing and updating values
+
+Array methods: push, pop, shift, unshift, slice, splice, concat
+
+Modern methods: map, filter, reduce, find, forEach, some, every
+
+Object methods:
+
+Object.keys(), Object.values(), Object.entries()
+
+Object destructuring
+
+Spread (...) and rest syntax
+
+JSON basics (stringify, parse)
+
+🧱 4. Classes and OOP (Object-Oriented Programming)
+
+What is a class and object
+
+Constructor function
+
+Methods inside class
+
+this keyword
+
+Inheritance (extends, super)
+
+Encapsulation (private and public properties)
+
+Static methods
+
+⚙️ 5. DOM (Document Object Model)
+
+Selecting elements (getElementById, querySelector)
+
+Changing content (innerHTML, textContent)
+
+Changing styles and attributes
+
+Creating and removing elements (createElement, append, remove)
+
+Event handling (addEventListener)
+
+Event object (event.target, preventDefault())
+
+⏱️ 6. Asynchronous JavaScript
+
+What is synchronous vs asynchronous
+
+setTimeout, setInterval
+
+Callbacks (callback hell)
+
+Promises (.then(), .catch())
+
+async and await
+
+fetch() API and working with APIs
+
+Error handling (try...catch)
+
+🧮 7. ES6+ Modern JavaScript
+
+let & const
+
+Arrow functions
+
+Template literals
+
+Destructuring
+
+Spread & Rest operators
+
+Default parameters
+
+Modules (import / export)
+
+Optional chaining (?.)
+
+Nullish coalescing (??)
+
+Map, Set, and Iterables
+
+🧰 8. Browser & Web APIs
+
+localStorage, sessionStorage
+
+fetch() for HTTP requests
+
+Event loop & microtasks (basic understanding)
+
+navigator, location, and window objects
+
+Working with forms and inputs
+
+JSON in APIs
+
+🧑‍💻 9. Error Handling & Debugging
+
+try...catch...finally
+
+Throwing custom errors
+
+Understanding console methods: console.log, warn, error, table
+
+Debugging using browser DevTools
+
+🧩 10. Advanced / Optional (for deep understanding)
+
+Closures and Lexical Scope
+
+Hoisting (variables and functions)
+
+Prototypes & Prototype Chain
+
+this binding (call, apply, bind)
+
+Event bubbling & capturing
+
+Debounce & Throttle concepts
+
+Module patterns
+
+Memory management basics

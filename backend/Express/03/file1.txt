@@ -1,0 +1,129 @@
+🔐 1. What is bcrypt?
+
+bcrypt is a library used to hash passwords securely.
+Instead of saving a raw password (like "12345") in your database, you save a hashed version (random-looking string).
+This makes it almost impossible for hackers to get the original password even if they steal your database.
+
+⚙️ 2. How bcrypt works (simple explanation)
+
+User enters password → "12345".
+
+bcrypt adds salt (random data) → "12345" + randomSalt.
+
+bcrypt hashes the result using multiple rounds → creates a long hash.
+
+You store only the hash in your database.
+
+When the user logs in:
+
+You take the entered password → hash it again with the same salt → compare both hashes.
+If they match ✅ → password is correct.
+
+📦 3. Install bcrypt
+
+Run this in your project terminal:
+
+npm install bcrypt
+
+🧠 4. Use bcrypt in Express.js — Full Example
+
+Here’s a simple register/login example using Express.js, bcrypt, and JWT for authentication.
+
+📁 Folder structure (example)
+project/
+│
+├─ server.js
+├─ package.json
+└─ users.js   (temporary in-memory “database”)
+
+🔹 server.js
+import express from "express";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+
+const app = express();
+app.use(express.json());
+
+// fake database (for demo)
+const users = [];
+
+// Register route
+app.post("/register", async (req, res) => {
+  const { username, password } = req.body;
+
+  // 1️⃣ Generate salt & hash password
+  const saltRounds = 10;
+  const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+  // 2️⃣ Save user
+  users.push({ username, password: hashedPassword });
+
+  res.json({ message: "User registered successfully" });
+});
+
+// Login route
+app.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+
+  // find user
+  const user = users.find((u) => u.username === username);
+  if (!user) return res.status(400).json({ error: "User not found" });
+
+  // compare passwords
+  const isMatch = await bcrypt.compare(password, user.password);
+  if (!isMatch) return res.status(400).json({ error: "Invalid password" });
+
+  // create JWT token
+  const token = jwt.sign({ username }, "secretKey", { expiresIn: "1h" });
+
+  res.json({ message: "Login successful", token });
+});
+
+// Protected route example
+app.get("/profile", (req, res) => {
+  const authHeader = req.headers.authorization;
+  if (!authHeader) return res.status(401).json({ error: "No token provided" });
+
+  const token = authHeader.split(" ")[1];
+  try {
+    const user = jwt.verify(token, "secretKey");
+    res.json({ message: "Welcome!", user });
+  } catch (err) {
+    res.status(401).json({ error: "Invalid token" });
+  }
+});
+
+app.listen(3000, () => console.log("Server running on port 3000"));
+
+🧩 5. How to test it
+
+Use Postman or any API client:
+
+POST → http://localhost:3000/register
+
+{
+  "username": "nidal",
+  "password": "12345"
+}
+
+
+POST → http://localhost:3000/login
+
+{
+  "username": "nidal",
+  "password": "12345"
+}
+
+
+You’ll get a JWT token in response.
+
+GET → http://localhost:3000/profile
+Add header:
+Authorization: Bearer <your_token_here>
+
+✅ Summary
+Step	Function	Description
+bcrypt.hash()	Hash password	Converts plain text → secure hash
+bcrypt.compare()	Verify password	Compares plain password with stored hash
+jwt.sign()	Create token	Signs a payload for authentication
+jwt.verify()	Verify token	Checks if token is valid

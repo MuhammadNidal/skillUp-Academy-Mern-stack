@@ -116,20 +116,6 @@ name – error type (e.g., ReferenceError)
 
 message – error description
 
-stack – stack trace (used for debugging)
-
-js
-Copy
-Edit
-try {
-  JSON.parse("{ invalid json }");
-} catch (error) {
-  console.log("Name:", error.name);        // SyntaxError
-  console.log("Message:", error.message);  // Unexpected token i in JSON...
-}
-🔹 Optional finally Block
-If you want to run some code no matter what happens (whether error or not), use finally:
-
 js
 Copy
 Edit
@@ -144,57 +130,22 @@ try {
 ✅ Use when:
 
 Dealing with external input (APIs, user data)
+var x = 33;
 
-Parsing JSON
+try {
+  console.log("Trying with value:", x);
 
-DOM operations (like accessing elements)
+  if (x < 50) {
+    throw new Error("Value is too small!");
+  }
 
-Network requests
+  console.log("✅ Value is fine:", x);
 
-🚫 Avoid for:
+} catch (error) {
+  console.log("⚠️ Caught an error:", error.message);
 
-Synchronous code you can validate beforehand
-
-Hiding bugs
-
-
-
-Different types of funciton
- What Are Arrow Functions?
-Arrow functions are a shorter syntax for writing functions in JavaScript introduced in ES6 (ECMAScript 2015).
-
-
-// Traditional Function
-function greet(name) {
-  return "Hello " + name;
+} finally {
+  console.log("🧩 Finally block always runs");
 }
 
-// Arrow Function
-const greet = (name) => {
-  return "Hello " + name;
-};
-🔷 Syntax Variations
-✅ 1. Basic Arrow Function
 
-
-const add = (a, b) => {
-  return a + b;
-};
-console.log(add(3, 4));  // 7
-✅ 2. Implicit Return (Short Version)
-If the function has only one expression, you can omit {} and return:
-
-
-const multiply = (a, b) => a * b;
-console.log(multiply(3, 5));  // 15
-✅ 3. One Parameter — No Parentheses Needed
-
-
-const greet = name => "Hello " + name;
-console.log(greet("Nidal"));  // Hello Nidal
-✅ 4. No Parameters
-You must use empty parentheses:
-
-
-const sayHi = () => "Hi!";
-console.log(sayHi());  // Hi!
