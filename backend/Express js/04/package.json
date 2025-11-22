@@ -1,0 +1,21 @@
+{
+  "name": "express-pagination-filtering",
+  "version": "1.0.0",
+  "description": "Express.js API with MongoDB, Filtering, Pagination example for students",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Muhammad Nidal",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mongoose": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

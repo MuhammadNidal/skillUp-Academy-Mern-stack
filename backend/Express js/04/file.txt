@@ -1,0 +1,204 @@
+    --------------->>>>>>>>>>>>>>>   pagination and filter      <<<<<<<<-------------------
+
+✅ Database connection
+✅ Model (Schema)
+✅ POST API (add data)
+✅ GET API with Filtering + Pagination
+✅ Full code for your students
+✅ Very easy explanation
+
+This is the perfect teaching example.
+
+📌 1. Install Required Packages
+
+Run this in terminal:
+
+npm install express mongoose cors
+
+📌 2. Folder Structure
+project/
+  |– server.js
+  |– models/
+       |– User.js
+  |– routes/
+       |– userRoutes.js
+
+📌 3. MongoDB Compass Connection
+
+Open MongoDB Compass → New Connection → paste:
+
+mongodb://127.0.0.1:27017/studentdb
+
+
+Database Name = studentdb
+
+📌 4. Create Model (User Schema)
+
+📌 File: models/User.js
+
+const mongoose = require("mongoose");
+
+const userSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  age: { type: Number, required: true },
+  city: { type: String, required: true }
+});
+
+module.exports = mongoose.model("User", userSchema);
+
+📌 5. Create Routes (POST + GET with Pagination & Filter)
+
+📌 File: routes/userRoutes.js
+
+const express = require("express");
+const User = require("../models/User");
+const router = express.Router();
+
+/*
+  ------------------------------
+  POST API (Add New User)
+  ------------------------------
+*/
+router.post("/add", async (req, res) => {
+  try {
+    const { name, age, city } = req.body;
+
+    const user = new User({ name, age, city });
+    await user.save();
+
+    res.json({ message: "User Added Successfully", user });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+/*
+  ------------------------------
+  GET API (Pagination + Filtering)
+  ------------------------------
+  Examples:
+  /users?page=1&limit=5
+  /users?city=Lahore
+  /users?age=20&page=2&limit=3
+*/
+router.get("/", async (req, res) => {
+  try {
+    let { page = 1, limit = 5, age, city } = req.query;
+
+    page = parseInt(page);
+    limit = parseInt(limit);
+
+    let filter = {};
+
+    // Filtering Logic
+    if (age) filter.age = age;
+    if (city) filter.city = city;
+
+    // Count total documents after applying filter
+    const total = await User.countDocuments(filter);
+
+    // Pagination Logic
+    const users = await User.find(filter)
+      .skip((page - 1) * limit)
+      .limit(limit);
+
+    res.json({
+      page,
+      limit,
+      total,
+      totalPages: Math.ceil(total / limit),
+      users
+    });
+
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+module.exports = router;
+
+📌 6. Main Server File
+
+📌 File: server.js
+
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const userRoutes = require("./routes/userRoutes");
+
+const app = express();
+app.use(express.json());
+app.use(cors());
+
+// MongoDB Connection (Compass)
+mongoose
+  .connect("mongodb://127.0.0.1:27017/studentdb")
+  .then(() => console.log("MongoDB Connected Successfully"))
+  .catch((err) => console.log(err));
+
+// Routes
+app.use("/users", userRoutes);
+
+// Start Server
+app.listen(5000, () => {
+  console.log("Server running on port 5000");
+});
+
+🎯 How to Test APIs (You Will Teach Your Student This)
+✔ 1. Add User (POST API)
+
+URL:
+
+http://localhost:5000/users/add
+
+
+Body (JSON):
+
+{
+  "name": "Ali",
+  "age": 22,
+  "city": "Lahore"
+}
+
+✔ 2. Get Users (GET API)
+
+📌 Pagination
+
+http://localhost:5000/users?page=1&limit=2
+
+
+📌 Filtering (City = Lahore)
+
+http://localhost:5000/users?city=Lahore
+
+
+📌 Filtering + Pagination Together
+
+http://localhost:5000/users?age=22&page=2&limit=1
+
+
+You will get:
+
+Only users with age 22
+
+Page 2
+
+1 user per page
+
+🧠 teach your student like this:
+⭐ What is Pagination?
+
+We load limited data (page by page) instead of loading full database.
+
+⭐ What is Filtering?
+
+We show only the matching data (like age = 20 or city = Lahore).
+
+⭐ Why use skip & limit?
+
+skip = how many records to ignore
+limit = how many records to show
+
+Example:
+
+page 2, limit 5 → skip = 5 → show next 5
