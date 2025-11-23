@@ -1,0 +1,158 @@
+1️⃣ JSX Syntax
+
+What is JSX?
+JSX = JavaScript + XML → it allows you to write HTML-like code inside JavaScript.
+
+Why use JSX?
+Makes React code readable
+Lets you embed HTML in JS
+React converts JSX to normal JS behind the scenes
+
+Example:
+function App() {
+  return <h1>Hello React!</h1>;
+}
+
+
+Output:
+Hello React!
+
+Key points:
+Looks like HTML but it’s JavaScript
+Browsers cannot read JSX directly
+React converts it to React.createElement()
+
+2️⃣ Embedding Expressions in JSX
+You can use JavaScript expressions inside {} in JSX.
+
+Example 1: Variables
+const name = "Nidal";
+
+function App() {
+  return <h1>Hello, {name}!</h1>;
+}
+
+
+Output: Hello, Nidal!
+
+Example 2: Calculations
+
+const a = 5;
+const b = 10;
+
+function App() {
+  return <p>Total = {a + b}</p>;
+}
+
+
+Output: Total = 15
+
+Rules:
+
+Only expressions are allowed, not statements.
+❌ Wrong: {if(a>5){...}}
+✅ Correct: {a>5 ? "Yes" : "No"}
+
+3️⃣ JSX Rules
+
+JSX has some important rules to follow:
+(a) One Parent Element
+A component must return only one parent element.
+❌ Wrong:
+return (
+  <h1>Hello</h1>
+  <p>Welcome</p>
+);
+✔ Correct:
+return (
+  <div>
+    <h1>Hello</h1>
+    <p>Welcome</p>
+  </div>
+);
+
+Or using Fragment:
+return (
+  <>
+    <h1>Hello</h1>
+    <p>Welcome</p>
+  </>
+);
+(b) Use className instead of class
+In React, class is a reserved word in JS, so we use className.
+<div className="box">Hello</div>
+
+(c) CamelCase for props & events
+
+React uses camelCase for attributes and events.
+
+<button onClick={() => alert("Clicked!")}>Click Me</button>
+
+
+Other examples:
+
+tabIndex instead of tabindex
+
+htmlFor instead of for
+
+maxLength, defaultValue, etc.
+
+4️⃣ Conditional JSX
+
+Show or hide elements based on conditions.
+
+Method 1: Ternary Operator
+const isLoggedIn = true;
+
+function App() {
+  return (
+    <div>
+      {isLoggedIn ? <h2>Welcome User</h2> : <h2>Please Login</h2>}
+    </div>
+  );
+}
+
+Method 2: Logical AND (&&)
+const show = true;
+
+function App() {
+  return <div>{show && <p>This is visible</p>}</div>;
+}
+
+
+Shows element if show is true
+
+Nothing is rendered if false
+
+5️⃣ Rendering Lists
+
+Use map() to render arrays as JSX.
+
+const users = ["Ali", "Hassan", "Nidal"];
+
+function App() {
+  return (
+    <ul>
+      {users.map((user, index) => (
+        <li key={index}>{user}</li>
+      ))}
+    </ul>
+  );
+}
+
+
+Important:
+
+Each list item needs a unique key
+
+Helps React identify elements during updates
+
+✅ Summary Table
+Topic	Example	Notes
+JSX Syntax	<h1>Hello</h1>	HTML inside JS
+Expressions	{a + b}	Only JS expressions
+One Parent	<div><h1></h1></div>	Must return 1 parent element
+className	<div className="box">	Not class
+CamelCase	onClick, htmlFor	For events & props
+Conditional JSX	{isLogin ? ... : ...}	Show elements conditionally
+Lists	arr.map()	Each item needs key

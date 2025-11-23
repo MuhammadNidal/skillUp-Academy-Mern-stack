@@ -1,0 +1,9 @@
+.BOX{
+  background-color: aqua;
+  color: brown;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 30px;
+  margin: 20px;
+  padding: 10px;
+  padding-left: 20px;
+}
