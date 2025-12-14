@@ -50,10 +50,7 @@ Side effects: API call / timers
 useEffect dependency array
 Cleanup function
 
-✅ 7. useRef
 
-Access DOM elements
-Persist values without rerender
 
 📌 Phase 3: React Medium-Level Concepts (Week 4)
 ✅ 8. Conditional Rendering
@@ -89,6 +86,11 @@ Create Context
 Provide & Consume
 useContext hook
 When to use context vs props
+
+✅ 7. useRef
+
+Access DOM elements
+Persist values without rerender
 
 12. Custom Hooks
 Why custom hooks?

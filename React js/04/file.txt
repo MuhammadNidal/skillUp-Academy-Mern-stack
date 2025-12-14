@@ -1,0 +1,161 @@
+What is useState? (1-line)
+
+👉 useState is used to store data that can change and update the screen automatically.
+
+1️⃣ Basic State
+
+Example: Number Counter
+
+import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={() => setCount(count + 1)}>
+        Increase
+      </button>
+    </div>
+  );
+}
+
+Explain to students:
+
+count → current value
+
+setCount → function to change value
+
+0 → starting value
+
+🧠 Rule:
+
+When state changes → UI updates automatically
+
+2️⃣ Updating State Correctly
+❌ Wrong Way
+count = count + 1;
+
+
+❌ React will NOT update UI
+
+✅ Correct Way
+setCount(count + 1);
+
+
+🧠 Rule:
+
+Never change state directly
+Always use setter function
+
+3️⃣ Updating State Using Previous Value
+
+When new value depends on old value:
+
+setCount(prevCount => prevCount + 1);
+
+Why?
+
+React updates state asynchronously, so using prevCount is safer.
+
+4️⃣ Updating Arrays in State
+Example: Todo List
+function Todo() {
+  const [tasks, setTasks] = useState([]);
+
+  const addTask = () => {
+    setTasks([...tasks, "New Task"]);
+  };
+
+  return (
+    <div>
+      <button onClick={addTask}>Add Task</button>
+
+      <ul>
+        {tasks.map((task, index) => (
+          <li key={index}>{task}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+Explain:
+
+...tasks → copy old array
+
+React needs a new array
+
+❌ tasks.push()
+✅ setTasks([...tasks, newTask])
+
+5️⃣ Updating Objects in State
+Example: User Profile
+function Profile() {
+  const [user, setUser] = useState({
+    name: "Ali",
+    age: 20,
+  });
+
+  const increaseAge = () => {
+    setUser({
+      ...user,
+      age: user.age + 1,
+    });
+  };
+
+  return (
+    <div>
+      <h2>{user.name}</h2>
+      <p>Age: {user.age}</p>
+      <button onClick={increaseAge}>Increase Age</button>
+    </div>
+  );
+}
+
+Explain:
+
+...user → copy old object
+
+Only update required field
+
+🧠 Rule:
+
+Never modify object directly
+
+6️⃣ Controlled Form Inputs (VERY IMPORTANT)
+Meaning:
+
+👉 Input value is controlled by React state
+
+Example: Text Input
+function Form() {
+  const [name, setName] = useState("");
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+
+      <p>Name: {name}</p>
+    </div>
+  );
+}
+
+Explain Flow:
+
+User types
+
+onChange runs
+
+State updates
+
+UI updates
+
+🧠 Rule:
+
+Input value must come from state
