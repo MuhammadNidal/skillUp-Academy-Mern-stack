@@ -192,3 +192,150 @@ function Counter() {
 }
 
 export default Counter;
+
+
+
+
+
+
+
+                             ------------------  ADVANCED --------------------------------
+
+
+
+
+
+
+
+1️⃣ What is Mount in React?
+
+Mount = Component is added to the screen
+
+📌 Simple words for students:
+When a component appears on the screen for the first time → it is mounted
+Example
+useEffect(() => {
+  console.log("Component Mounted");
+}, []);
+
+
+✅ Runs only once
+✅ Best for API calls, event listeners
+
+2️⃣ What is Unmount in React?
+Unmount = Component is removed from the screen
+
+📌 Simple words:
+When a component disappears from the screen → it is unmounted
+
+Example:
+Leaving a page
+Hiding a component
+
+Route change
+3️⃣ What is Cleanup in useEffect?
+Cleanup is code that runs when component unmounts
+
+📌 Simple words:
+Cleanup means stop or remove things before leaving the component
+Why cleanup is important?
+Prevent memory leaks
+Stop background tasks
+Remove event listeners
+
+4️⃣ Basic Cleanup Syntax
+useEffect(() => {
+  // start something
+
+  return () => {
+    // cleanup code
+  };
+}, []);
+
+useEffect(() => {
+  const timer = setInterval(() => {
+    console.log("Running...");
+  }, 6000);
+
+  return () => {
+    clearInterval(timer);
+  };
+}, []);
+
+
+🧠 Explain to students:
+Whatever you return from useEffect is cleanup code
+
+5️⃣ addEventListener in useEffect
+Problem ❌ (Without cleanup)
+useEffect(() => {
+  window.addEventListener("resize", () => {
+    console.log("Window resized");
+  });
+}, []);
+
+
+❌ Issue:
+Listener stays active even after component unmounts
+
+Causes memory leak
+6️⃣ Correct Way ✅ (With Cleanup)
+useEffect(() => {
+  const handleResize = () => {
+    console.log("Window resized");
+  };
+
+  window.addEventListener("resize", handleResize);
+
+  return () => {
+    window.removeEventListener("resize", handleResize);
+  };
+}, []);
+
+What happens step-by-step:
+Component mounts → listener added
+Window resizes → message logs
+
+Component unmounts → listener removed
+
+7️⃣ Real-Life Example (Very Easy)
+Example: Fan in a Room 🪭
+React	Real Life
+Component mounts	Enter room
+addEventListener	Switch on fan
+Component unmounts	Leave room
+Cleanup	Switch off fan
+
+📌 Key line to tell students:
+
+Always clean up what you start
+
+8️⃣ Another Simple Example (Mouse Move)
+useEffect(() => {
+  const moveMouse = () => {
+    console.log("Mouse moved");
+  };
+
+  window.addEventListener("mousemove", moveMouse);
+
+  return () => {
+    window.removeEventListener("mousemove", moveMouse);
+  };
+}, []);
+
+9️⃣ Common Student Mistakes 🚫
+
+❌ Forget cleanup
+❌ Create function inside removeEventListener
+❌ Add listener without dependency array
+❌ Multiple listeners added again and again
+
+10️⃣ One-Line Summary (Exam / Interview)
+
+Mount → Component added to DOM
+
+Unmount → Component removed from DOM
+
+Cleanup → Code that runs before unmount
+
+addEventListener → Must be added in useEffect and removed in cleanup

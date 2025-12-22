@@ -1,0 +1,241 @@
+Phase 6 – API & Integration (Week 7)
+Topic: Fetching Data (Fetch API & Axios)
+1️⃣ What is an API? (Explain this first)
+
+👉 API (Application Programming Interface) is like a waiter in a restaurant.
+
+You (frontend) = Customer
+
+Kitchen (backend/server) = Database
+
+Waiter (API) = Brings data to you
+
+📌 Frontend never talks directly to the database
+It sends a request to an API and gets a response.
+
+2️⃣ What is Data Fetching?
+
+📌 Fetching data means:
+
+Getting data from a server (backend) to show on our website/app
+
+Examples:
+
+Get user list
+
+Get products
+
+Get posts
+
+Login / Signup
+
+3️⃣ Fetch API (Built-in JavaScript)
+👉 What is Fetch?
+
+Fetch is a built-in JavaScript function
+
+Used to request data from APIs
+
+Returns a Promise
+
+✅ Basic Fetch Example (Very Simple)
+fetch("https://jsonplaceholder.typicode.com/posts")
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
+🔍 Line-by-Line Explanation
+fetch("URL")
+
+
+➡ Sends request to the server
+
+.then(response => response.json())
+
+
+➡ Converts server response into JSON
+
+.then(data => console.log(data))
+
+
+➡ Uses the data
+
+.catch(error => console.log(error))
+➡ Handles error if request fails
+
+4️⃣ Fetch in React (Real Example)
+import { useEffect, useState } from "react";
+
+function Posts() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then(res => res.json())
+      .then(data => setPosts(data))
+      .catch(err => console.log(err));
+  }, []);
+
+  return (
+    <div>
+      <h2>Posts</h2>
+      {posts.map(post => (
+        <p key={post.id}>{post.title}</p>
+      ))}
+    </div>
+  );
+}
+
+export default Posts;
+
+5️⃣ Loading State (Very Important 🔥)
+
+📌 Problem:
+Data takes time to load → screen looks empty
+
+📌 Solution:
+Use a loading state
+
+✅ Example with Loading
+function Posts() {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then(res => res.json())
+      .then(data => {
+        setPosts(data);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <h3>Loading...</h3>;
+  }
+
+  return (
+    <div>
+      {posts.map(post => (
+        <p key={post.id}>{post.title}</p>
+      ))}
+    </div>
+  );
+}
+
+🧠 Explain to Students:
+
+loading = true → show loader
+
+Data loaded → loading = false
+
+6️⃣ Error Handling
+
+📌 What if:
+
+Internet is off?
+
+Server is down?
+
+Wrong URL?
+
+👉 App should not crash ❌
+
+✅ Example with Error Handling
+const [error, setError] = useState(null);
+
+useEffect(() => {
+  fetch("https://jsonplaceholder.typicode.com/posts")
+    .then(res => {
+      if (!res.ok) {
+        throw new Error("Something went wrong");
+      }
+      return res.json();
+    })
+    .then(data => setPosts(data))
+    .catch(err => setError(err.message));
+}, []);
+
+if (error) {
+  return <h3>Error: {error}</h3>;
+}
+
+7️⃣ Axios (Alternative to Fetch)
+👉 What is Axios?
+
+External library
+
+Easier than fetch
+
+Automatically converts JSON
+
+Better error handling
+
+📌 Install:
+
+npm install axios
+
+✅ Axios Example
+import axios from "axios";
+
+useEffect(() => {
+  axios
+    .get("https://jsonplaceholder.typicode.com/posts")
+    .then(res => {
+      setPosts(res.data);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}, []);
+
+🔍 Difference from Fetch
+Fetch	Axios
+Built-in	External library
+Manual JSON	Auto JSON
+More code	Cleaner code
+8️⃣ Axios with Loading & Error (Best Practice)
+function Posts() {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    axios
+      .get("https://jsonplaceholder.typicode.com/posts")
+      .then(res => {
+        setPosts(res.data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setError("Failed to fetch data");
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <h3>Loading...</h3>;
+  if (error) return <h3>{error}</h3>;
+
+  return (
+    <div>
+      {posts.map(post => (
+        <p key={post.id}>{post.title}</p>
+      ))}
+    </div>
+  );
+}
+
+9️⃣ Simple Teaching Flow (Use This in Class)
+
+1️⃣ What is API
+2️⃣ Why we fetch data
+3️⃣ Fetch API (simple example)
+4️⃣ Fetch in React
+5️⃣ Loading state
+6️⃣ Error handling
+7️⃣ Axios
+8️⃣ Fetch vs Axios

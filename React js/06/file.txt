@@ -1,0 +1,236 @@
+React Router (Without Protected Routes) – Beginner Friendly Guide
+
+React Router is used to create multiple pages in a React application without reloading the browser.
+
+👉 React apps are Single Page Applications (SPA)
+👉 Page does NOT reload, only component changes
+
+1️⃣ Installing React Routerrout
+📌 What is React Router?
+
+A library that allows us to:
+
+Create pages
+
+Change URLs
+
+Navigate between components
+
+✅ Installation Command
+npm install react-router-dom
+
+🧠 How to explain to students:
+
+“React Router helps us connect URLs with components.”
+
+2️⃣ BrowserRouter
+📌 What is BrowserRouter?
+
+It is the main wrapper that enables routing in React.
+
+🧠 Easy explanation:
+
+“BrowserRouter watches the browser URL and decides which page to show.”
+
+✅ Setup (index.js / main.jsx)
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+
+
+📌 Important rule:
+
+❌ Without BrowserRouter, routing will NOT work
+
+3️⃣ Routes & Route
+📌 What is Route?
+
+Route connects URL path → component
+
+Routes is a container for all routes
+
+🧠 Explain simply:
+
+“Route means:
+If URL is this → show this component”
+
+✅ Example (App.jsx)
+import { Routes, Route } from "react-router-dom";
+import Home from "./Home";
+import About from "./About";
+import Contact from "./Contact";
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/contact" element={<Contact />} />
+    </Routes>
+  );
+}
+
+export default App;
+
+📌 URL Mapping (Explain to students)
+URL	Component
+/	Home
+/about	About
+/contact	Contact
+4️⃣ Link (Navigation)
+📌 What is Link?
+
+Used to move from one page to another without refreshing the page.
+
+🧠 Explain:
+
+“Link works like <a> tag, but it does NOT reload the page.”
+
+✅ Example
+import { Link } from "react-router-dom";
+
+function Navbar() {
+  return (
+    <nav>
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+      <Link to="/contact">Contact</Link>
+    </nav>
+  );
+}
+
+export default Navbar;
+
+
+📌 Teaching tip:
+
+❌ Do NOT use <a ="">
+✅ Always use Linhrefk
+
+5️⃣ NavLink (Active Menu)
+📌 What is NavLink?
+
+NavLink is the same as Link but adds active styling for the current page.
+
+🧠 Easy explanation:
+
+“NavLink tells us which page is currently open.”
+
+✅ Basic NavLink Example
+import { NavLink } from "react-router-dom";
+
+function Navbar() {
+  return (
+    <nav>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/about">About</NavLink>
+      <NavLink to="/contact">Contact</NavLink>
+    </nav>
+  );
+}
+
+export default Navbar;
+
+✅ NavLink with Active Style
+<NavLink
+  to="/about"
+  style={({ isActive }) => ({
+    color: isActive ? "red" : "black",
+    fontWeight: isActive ? "bold" : "normal"
+  })}
+>
+  About
+</NavLink>
+
+🧠 Explain difference:
+Feature	Link	NavLink
+Navigation	✅	✅
+Active Style	❌	✅
+6️⃣ useParams (Dynamic Routing)
+📌 What is useParams?
+
+It is used to read dynamic values from the URL.
+
+🧠 Real-world example:
+/product/101
+/product/205
+
+
+Here 101 and 205 are dynamic IDs.
+
+✅ Route Setup
+<Route path="/product/:id" element={<Product />} />
+
+✅ Product Component
+import { useParams } from "react-router-dom";
+
+function Product() {
+  const { id } = useParams();
+
+  return (
+    <div>
+      <h2>Product Details</h2>
+      <p>Product ID: {id}</p>
+    </div>
+  );
+}
+
+export default Product;
+
+🧠 Explain to students:
+
+“useParams reads values written in the URL.”
+
+📌 Use cases:
+
+Product page
+
+User profile
+
+Blog details page
+
+7️⃣ Link with Dynamic Route Example
+<Link to="/product/101">Product 101</Link>
+<Link to="/product/202">Product 202</Link>
+
+
+When clicked:
+
+URL changes
+
+Product page opens
+
+ID is read using useParams
+
+8️⃣ Complete Simple Routing Structure
+<BrowserRouter>
+  <Navbar />
+
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/about" element={<About />} />
+    <Route path="/contact" element={<Contact />} />
+    <Route path="/product/:id" element={<Product />} />
+  </Routes>
+</BrowserRouter>
+
+🎯 Best Teaching Order (No Protected Routes)
+
+1️⃣ What is SPA & Routing
+2️⃣ Install React Router
+3️⃣ BrowserRouter
+4️⃣ Routes & Route
+5️⃣ Link
+6️⃣ NavLink
+7️⃣ useParams
+
+
+
+

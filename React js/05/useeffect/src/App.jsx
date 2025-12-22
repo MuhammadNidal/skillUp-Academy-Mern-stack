@@ -1,23 +1,36 @@
-import { useEffect, useState } from "react";
-
+// import { useEffect, useState } from "react";
+import Home from "./home";
+import About from "./about";
+import Contact from "./contact";
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Product from "./product";
+import { useEffect, useState } from "react";
 
 function App() {
   const [users, setUsers] = useState([]);
   const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((res) => res.json())
-      .then((data) => {
-        setUsers(data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://jsonplaceholder.typicode.com/users")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setUsers(data);
+  //     });
+  // }, []);
 
-  useEffect(() => {
-    console.log("Count updated:", count);
-  }, [count]);
+  // useEffect(() => {
+  //   console.log("Count updated:", count);
+  // }, [count]);
+useEffect(() => {
+    const timer = setTimeout(() => {
+      console.log("Running...");
+    }, 1000);
 
+  return () => {
+    clearInterval(timer);
+  };
+}, []);
   return (
     <>
       <div>
@@ -38,5 +51,6 @@ function App() {
     </>
   );
 }
+
 
 export default App;

@@ -48,7 +48,7 @@ Controlled form inputs
 When does useEffect run
 Side effects: API call / timers
 useEffect dependency array
-Cleanup function
+Cleanup functionf
 
 
 
