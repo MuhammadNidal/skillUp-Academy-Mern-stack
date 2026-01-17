@@ -4,8 +4,8 @@
   "description": "",
   "main": "file.js",
   "scripts": {
-    "start": "node file.js",
-    "dev": "nodemon file.js"
+    "start": "node init && node file.js",
+    "dev": "node init && nodemon file.js"
   },
   "keywords": [],
   "author": "",
